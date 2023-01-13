@@ -5,7 +5,7 @@ import Img from "../../asset/file.json";
 
 const Adventure = () => {
   const [allAdv, setAllAdv] = useState([]);
-  // let all = Img.concat(allAdv);
+  let all = Img.concat(allAdv);
 
   useEffect(() => {
     fetch(`http://localhost:2222/all-adventures`)
@@ -24,7 +24,7 @@ const Adventure = () => {
   return (
     <>
       <div className="adventure list">
-        {Img.map((val) => (
+        {all.map((val) => (
           <div className="adv details" key={val.adv_id}>
             <div className="imgDisplayer">
               <img
