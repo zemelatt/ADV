@@ -1,0 +1,20 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style-type: none;
+  box-sizing: content-box;
+}
+.App {
+  text-align: center;
+}
+body {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.errDisplayer {
+  color: rgb(244, 187, 187);
+  margin: auto 30%;
+  font-weight: 50;
+  position: relative;
+}

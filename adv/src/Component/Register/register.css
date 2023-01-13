@@ -1,0 +1,71 @@
+.form-container {
+  /* display: flex;
+  flex-direction: column; */
+  background-color: rgb(93, 168, 109);
+  width: 80%;
+  height: 60vh;
+  margin: 4em auto;
+  padding-top: 2em;
+  border-radius: 7px;
+}
+.regForm {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  width: 80%;
+  padding: 1em;
+  margin: 4em auto 4em auto;
+  background-image: url("../../asset/woman-walks-bridge.jpg");
+}
+
+input {
+  width: 40%;
+  height: 1.7rem;
+  margin: auto auto;
+  border-radius: 5px;
+  color: white;
+  font-size: 1rem;
+  background-color: rgb(102, 159, 210, 0.4);
+  text-align: center;
+}
+label {
+  margin: 0.3rem auto 0.2rem auto;
+  font-size: 1.3rem;
+  color: rgb(125, 196, 215);
+}
+label:first-child {
+  margin-top: 2rem;
+}
+
+.submit-btn {
+  width: 7rem;
+  margin: 2rem auto;
+  color: white;
+  background-color: rgb(74, 141, 76);
+  padding: 7px;
+  border-radius: 5px;
+}
+.submit-btn:hover {
+  background-color: rgb(9, 61, 11);
+}
+
+@media only screen and (max-width: 500px) {
+  input {
+    width: 60%;
+  }
+  .form-container {
+    padding-bottom: 1em;
+    width: 95%;
+    height: auto;
+    margin-top: 1em;
+  }
+  .regForm {
+    margin: 3em auto 4em auto;
+  }
+}
+@media only screen and (max-width: 311px) {
+  .regForm {
+    margin: 2em auto 4em auto;
+    width: 97%;
+  }
+}
