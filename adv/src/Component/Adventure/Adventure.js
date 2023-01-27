@@ -1,48 +1,37 @@
 import React, { useEffect, useState } from "react";
 import "./adv.css";
-
-import Img from "../../asset/file.json";
-
+import Axios from "axios";
+import Img from "../../asset/file.json"; //overview for gusts
+import AdvList from "./AdvList";
 const Adventure = () => {
   const [allAdv, setAllAdv] = useState([]);
-  let all = Img.concat(allAdv);
+  const [admin, setAdmin] = useState(false);
+  let all = [...Img, ...allAdv]; // overview for gusts
+  const userId = sessionStorage.getItem("role");
+
+  let role = sessionStorage.getItem("role");
+  useEffect(() => {
+    function isAdmin() {
+      if (role == "admin") {
+        setAdmin(true);
+      } else {
+        setAdmin(false);
+      }
+    }
+    isAdmin();
+  });
 
   useEffect(() => {
-    fetch(`http://localhost:2222/all-adventures`)
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          setAllAdv(result);
-        },
-
-        (error) => {
-          console.log(error);
-        }
-      );
+    Axios.get(`http://localhost:2222/all-adventures`, {
+      withCredentials: true,
+    }).then((result) => {
+      setAllAdv(result.data);
+    });
   }, [allAdv]);
 
   return (
     <>
-      <div className="adventure list">
-        {all.map((val) => (
-          <div className="adv details" key={val.adv_id}>
-            <div className="imgDisplayer">
-              <img
-                src={require(`../../../../server/uploads/${val.imgFile}`)}
-                alt="example"
-                className="advImg"
-              />
-            </div>
-
-            <div className="advDescription">
-              <h4 className="countryName dis">{val.countryName}</h4>
-              <p className="placeName dis">{val.placeName}</p>
-
-              <p className="paraD">{val.description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+      <AdvList all={all} admin={admin} />
     </>
   );
 };

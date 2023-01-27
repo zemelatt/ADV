@@ -1,21 +1,42 @@
-import { useState } from "react";
-import { NavLink, Link } from "react-router-dom";
-import { AiOutlineDown } from "react-icons/ai";
+import { useEffect, useState } from "react";
+import { NavLink, Link, useNavigate } from "react-router-dom";
+import { AiFillCaretUp } from "react-icons/ai";
+import { AiFillCaretDown } from "react-icons/ai";
 
+import Axios from "axios";
 import "./navbar.css";
 import "./humburger.css";
+
 const Navbar = () => {
+  const userId = sessionStorage.getItem("userId");
+  const navigate = useNavigate();
+
   const [burger, setBerger] = useState("humburger ");
   const [menuClick, setMenu] = useState(false);
   const [dropdown, setDrop] = useState(false);
   const [dropClass, setClass] = useState("hidden");
+  const [login, setlogin] = useState(false);
+  const [sideUp, setUp] = useState(false);
+
+  // chiking if  user is logged in
+  useEffect(() => {
+    (function getUser() {
+      let user = sessionStorage.getItem("role");
+      if (user) {
+        setlogin(true);
+      }
+      return user;
+    })();
+  });
   const drop = () => {
     if (!dropdown) {
       setDrop(true);
       setClass("dropdown");
+      setUp(true);
     } else {
       setDrop(false);
       setClass("hidden");
+      setUp(false);
     }
   };
 
@@ -32,22 +53,55 @@ const Navbar = () => {
     setBerger("humburger");
     setMenu(false);
   };
-  const outt = () => {
-    setDrop(false);
-    setClass("hidden");
+  const logout = () => {
+    sessionStorage.clear("role");
+    sessionStorage.clear("userId");
+    setlogin(false);
+    Axios.get("http://localhost:2222/delete-token", {
+      withCredentials: true,
+    }).then((response) => {
+      return navigate("/login");
+    });
   };
+
   return (
     <>
+      <div>
+        <h1 className="infos">
+          It feels good to be lost in the right direction !!
+        </h1>
+      </div>
       <div id="navbar">
-        <nav onMouseLeave={outt}>
+        <nav>
           <h3 className="logo">
             <a href="/">ADV</a>
           </h3>
-          <AiOutlineDown className="nav drop" onMouseEnter={drop} />
-          <div onMouseLeave={drop} className={dropClass}>
-            <Link to="/register">
-              <p style={{ color: "blue" }}>Be a Member</p>
-            </Link>
+          {sideUp ? (
+            <AiFillCaretUp className="nav drop" onClick={drop} />
+          ) : (
+            <AiFillCaretDown className="nav drop" onClick={drop} />
+          )}
+
+          <div className={dropClass}>
+            <div onClick={() => setClass("hidden")}>
+              {" "}
+              <div>
+                {login ? (
+                  <>
+                    <p onClick={logout} style={{ cursor: "pointer" }}>
+                      logout
+                    </p>
+                    <p>
+                      <Link to={`/my-adv/${userId}`}>Your Adventures</Link>
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <Link to="/login">Login</Link>
+                  </>
+                )}
+              </div>
+            </div>
           </div>
 
           <NavLink to="/add-adventure" className="nav">
@@ -68,17 +122,17 @@ const Navbar = () => {
       {menuClick && (
         <div className="side-bar" onClick={sidebar}>
           <nav className="side-Option">
-            <NavLink to="/home" id="burger-op">
+            <NavLink to="/" id="burger-op">
               Home
             </NavLink>
             <NavLink to="/adv" id="burger-op">
               Adventure
             </NavLink>
-            <NavLink to="/abou" id="burger-op">
+            <NavLink to="/about" id="burger-op">
               About
             </NavLink>
-            <NavLink to="/abou" id="burger-op">
-              Be a member
+            <NavLink to="/login" id="burger-op">
+              Create Account
             </NavLink>
           </nav>
         </div>

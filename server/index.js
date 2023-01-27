@@ -2,8 +2,32 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const cors = require("cors");
+const db = require("./db/db");
 
-app.use(cors());
+const cookieParser = require("cookie-parser");
+const { auth } = require("./authcontroler");
+
+const {
+  register,
+  login,
+  logOut,
+  allAdventure,
+  myadv,
+  addAdventure,
+  getUpdatingfile,
+  Updating,
+  deleteAdv,
+} = require("./routecontrol/routeControl");
+
+app.use(bodyParser.json());
+app.use(cookieParser());
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 // photo uploading
@@ -34,55 +58,18 @@ const upload = multer({
   // },
 });
 
-const db = require("./db/db"); // importing database
+// using Router
+app.use("/all-adventures", allAdventure); // getting all adventure
+app.use("/delete-token", logOut); // logout
+app.use("/my-adv/:id", myadv); //view my adventure
 
-app.post("/sharing_adventure", upload.single("photo"), (req, res) => {
-  const { countryName, placeName, advType, description } = req.body;
-  const { filename } = req.file;
-
-  // a function changing 1st letter to capital letter
-  let names = [countryName, placeName, advType, description];
-  const chenger = function (input) {
-    let coll = [];
-    for (i = 0; i < 4; i++) {
-      coll.push(input[i].charAt(0).toUpperCase() + input[i].slice(1));
-    }
-    return coll;
-  };
-
-  let allCpitals = chenger(names);
-
-  const sql = `INSERT INTO adventurelist (adv_id, countryName, placeName, advType, description, imgFile) values(null,'${allCpitals[0]}','${allCpitals[1]}','${allCpitals[2]}','${allCpitals[3]}', '${filename}')`;
-
-  db.query(sql, (err, result) => {
-    if (err) throw err;
-    res.send({ note: "added" });
-  });
-});
-app.post("/member", upload.single("photo"), (req, res) => {
-  const { name, email } = req.body;
-  const nameOfPerson = name.charAt(0).toUpperCase() + name.slice(1);
-  const sql = `INSERT INTO userList (id, userName, userEmail) values(300,'${nameOfPerson}','${email}')`;
-
-  db.query(`select * from userList where id=${nameOfPerson}`, (err, replay) => {
-    if (err) throw err;
-    if (replay) {
-      db.query(sql, (err, result) => {
-        if (err) console.log(err);
-      });
-    } else {
-      res.send({ msg: "already registered" });
-    }
-  });
-});
-app.get("/all-adventures", (req, res) => {
-  const allsql = "select * from adventurelist";
-  db.query(allsql, (err, result) => {
-    if (err) throw err;
-    res.send(result);
-  });
-});
-
+app.use("/member", upload.single("photo"), register); // rigestring user
+app.use("/login", upload.single("photo"), login); //login user
+app.use("/sharing_adventure", upload.single("photo"), auth, addAdventure); //add adventure
+app.use("/updating/:id", auth, getUpdatingfile); // getupdating file
+app.use("/update/:id", upload.single("photo"), auth, Updating); // updating file
+///delete/my-adv/${id}
+app.use("/delete/my-adv_id/:NUM", auth, deleteAdv); //delete adv
 app.listen(2222, () => {
   console.log("server runing on 2222");
 });

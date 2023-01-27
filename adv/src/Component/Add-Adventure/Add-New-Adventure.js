@@ -1,8 +1,11 @@
 import React, { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import Axios from "axios";
 import "./Add-New-Adv.css";
+import Im from "../../asset/pexels-photo-1761282.jpeg";
 
 const AddNewAdventure = () => {
+  const push = useNavigate();
   const [classs, setCllass] = useState("ad");
   const [classs2, setclass2] = useState("");
   const inputRef = useRef(null);
@@ -12,6 +15,7 @@ const AddNewAdventure = () => {
   const [advType, setAdvType] = useState("");
   const [description, setDescription] = useState("");
   const [err, setErr] = useState("");
+
   const getPhoto = (e) => {
     setPhoto(e.target.files[0]);
   };
@@ -50,13 +54,14 @@ const AddNewAdventure = () => {
     ) {
       setErr("Err: all forms must be filled");
     } else {
-      Axios.post("http://localhost:2222/sharing_adventure", formData).then(
-        (response) => {
-          setErr(response.data.msg);
-          setCllass("MODELstyle");
-          setclass2("cover");
-        }
-      );
+      Axios.post("http://localhost:2222/sharing_adventure", formData, {
+        withCredentials: true,
+      }).then((response) => {
+        setErr(response.data.msg);
+        setCllass("MODELstyle");
+        setclass2("cover");
+      });
+
       setCountryName("");
       setAdvType("");
       setDescription("");
@@ -66,11 +71,11 @@ const AddNewAdventure = () => {
     }
   };
   return (
-    <div>
-      <div className="newAdv-container">
+    <div className="newAdv-container">
+      <div>
         <div className={classs2}>
           <div className={classs}>
-            <h3 style={{ color: "black" }}>Your Adventure is Added</h3>
+            <h3 style={{ color: "black" }}> {err}</h3>
             <button className="portBtn" onClick={removeport}>
               <h1 style={{ color: "black" }}>OK</h1>
             </button>
@@ -104,15 +109,21 @@ const AddNewAdventure = () => {
           />
 
           <label className="formQ">Type of Adventure</label>
-          <input
+          <select
             className="inputs"
             type="text"
             name="advType"
-            placeholder="hiking"
             autoComplete="off"
             value={advType}
             onChange={getType}
-          />
+          >
+            <option value="Camping">Camping</option>
+            <option value="Canoeing">Skydiving</option>
+            <option value="Climbing">Climbing</option>
+            <option value="Mountain biking">Mountain biking</option>
+            <option value="Trekking">Trekking</option>
+          </select>
+
           <label className="formQ">Description about the place</label>
           <textarea
             className="inputs"
@@ -139,6 +150,9 @@ const AddNewAdventure = () => {
             Submit
           </button>
         </form>
+      </div>
+      <div className="adjusent">
+        <img src={Im} alt="in" className="imgAdd" />
       </div>
     </div>
   );

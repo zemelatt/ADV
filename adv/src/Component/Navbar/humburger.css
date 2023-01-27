@@ -1,6 +1,7 @@
 .humburger,
 .bar {
   display: none;
+  border: 1px solid rgba(15, 15, 216, 0.1);
 }
 .side-bar {
   display: none;
@@ -37,15 +38,16 @@
     display: block;
     width: 100%;
     height: 5px;
-    background-color: white;
+    background-color: rgb(0, 0, 0);
     margin: 6px 0px;
     transition: 0.4s;
+    border: 1px solid rgb(7, 6, 14);
   }
   .humburger.is-active::before {
-    transform: rotate(-45deg) translate(-8px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
   }
   .humburger.is-active::after {
-    transform: rotate(45deg) translate(-9px, -8px);
+    transform: rotate(45deg) translate(-11px, -8px);
   }
   .humburger.is-active .bar {
     opacity: 0;
@@ -55,6 +57,7 @@
     position: absolute;
     width: 100%;
     text-align: center;
+    z-index: 10;
   }
   .side-Option {
     line-height: 2.5rem;

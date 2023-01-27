@@ -1,59 +1,121 @@
-* {
-  padding: 0;
-  margin: 0;
-}
 .adventure {
   display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  justify-content: center;
+  flex-flow: wrap;
+  width: 98%;
+  align-items: center;
+  background-color: rgba(227, 235, 235, 0.8);
+  margin: 1em auto;
+  gap: 1.5em;
 }
 .details {
   top: 1em;
+  width: 40%;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  width: 44em;
-  background-color: rgb(7, 77, 26);
-  box-shadow: 3px 3px rgb(89, 154, 108), -1em 0 2em rgb(97, 96, 100);
+  background: rgb(250, 250, 250);
+  box-shadow: 2px 2px rgb(18, 18, 245), -0.2em 0 1em rgb(97, 96, 100);
   border-radius: 16px;
-  padding: 1em;
-  margin: 1rem;
+  border-bottom: 5px solid rgb(18, 18, 245);
+  padding: 1.5em;
+  margin: 2em auto auto 1em;
 }
 .advDescription {
-  margin: 0em auto 0em auto;
+  margin: auto auto auto auto;
   padding-left: 1em;
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows: 3em auto;
-  justify-content: center;
 }
 .paraD {
-  color: blanchedalmond;
-  grid-column: 1 / span 2;
-  grid-row: 2;
+  color: rgb(14, 13, 12);
+  margin-top: 1em;
 }
 .dis {
   padding: 0.5em;
-  width: 100%;
+  width: auto;
+  color: rgb(0, 0, 0);
 }
-img {
-  width: 15rem;
+.advImg {
+  width: 18rem;
   height: 15rem;
-  padding-left: 1em;
+  margin: auto;
 }
-@media only screen and (max-width: 1540px) {
-  .details {
-    width: 80%;
+.descriptionHead {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.1);
+  align-items: center;
+}
+.editingIcon {
+  position: relative;
+  height: 1em;
+  width: 3em;
+  display: flex;
+  flex-direction: row;
+  top: 5px;
+  right: 65px;
+  font-size: larger;
+  gap: 10px;
+  color: black;
+}
+
+@media only screen and (max-width: 1190px) {
+  .adventure {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
-  img {
+  .details {
     width: 70%;
+    margin: 1em auto;
+  }
+  .advImg {
+    width: 45%;
     height: 100%;
-    padding-left: 0;
   }
   .advDescription {
     padding-left: 0em;
+    width: 95%;
+    margin-left: 1em;
+  }
+
+  .editing {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 5em;
+
+    font-size: 1.5em;
+  }
+}
+@media only screen and (max-width: 630px) {
+  .details {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .descriptionHead {
+    width: 100%;
+    background-color: rgba(7, 9, 10, 0);
+    margin: auto;
+  }
+  .advImg {
+    width: 80%;
+    height: 100%;
+  }
+}
+@media only screen and (max-width: 630px) {
+  .descriptionHead {
+    display: flex;
+    flex-direction: column;
+  }
+  .dis {
+    color: black;
+  }
+  .editing {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 2em;
+    margin-left: 2em;
+
+    font-size: 1.3em;
   }
 }

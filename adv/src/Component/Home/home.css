@@ -1,49 +1,57 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital@0;1&family=Roboto:wght@100&display=swap");
 .info {
-  color: rgb(29, 37, 34);
-  background: rgba(126, 128, 127, 0.3);
-  margin: 3% 0% 0rem 0%;
-  font-size: 3rem;
-  font-family: "Roboto", sans-serif;
-  text-align: center;
+  display: none;
 }
 .description {
-  color: white;
+  color: rgb(19, 17, 1);
   padding: 1rem;
   text-align: justify;
   text-indent: 2em;
   line-height: 1.5;
+  font-size: 1.5em;
 }
 .location-name {
-  color: blueviolet;
+  color: rgb(49, 43, 226);
+  font-size: 1.7;
 }
 .item {
-  background: #284138;
-  height: 18em;
+  background-color: rgba(246, 246, 246, 0);
+  height: 30em;
   padding: 2% 2% 12% 1%;
-  border-top: 1px solid rgb(92, 194, 131);
-  border-left: 1px solid rgb(92, 194, 131);
-  border-radius: 15px 0px;
+  border-bottom: 1px solid rgb(92, 194, 131);
+  border-right: 1px solid rgb(92, 194, 131);
+  border-radius: 20px 20px;
 }
 .imgey,
 .imgex {
-  margin-top: -15%;
+  margin-top: -17%;
 }
 .imgez {
-  margin-top: 5%;
+  margin-top: 1%;
 }
-img {
-  width: 300px;
-  height: 200px;
+.homeImg {
+  width: 90%;
+  height: 400px;
 }
 
 .image-container {
   display: flex;
   width: 90%;
-  margin: 15% auto 2rem auto;
+  margin: -5% auto 2rem auto;
   padding-top: 2em;
 }
-@media only screen and (max-width: 1097px) {
+@media only screen and (max-width: 1124px) {
+  .info {
+    display: flex;
+    color: rgb(0, 0, 0);
+    background: rgb(204, 207, 211);
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    font-family: "Lora", serif;
+    font-family: "Roboto", sans-serif;
+    justify-content: center;
+  }
   .image-container {
     flex-direction: column;
     margin-top: 1%;
@@ -53,12 +61,22 @@ img {
     padding: 2% 2% 2% 1%;
     height: auto;
     display: flex;
+    background-color: rgba(246, 246, 246, 0.9);
   }
 }
 @media only screen and (max-width: 540px) {
   .item {
     display: block;
   }
+  .homeImg {
+    width: 70%;
+  }
+  .info {
+    position: relative;
+    z-index: 1;
+  }
+}
+@media only screen and (max-width: 925px) {
 }
 .intros {
   position: fixed;

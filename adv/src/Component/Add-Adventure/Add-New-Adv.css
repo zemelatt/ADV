@@ -1,6 +1,11 @@
 .newAdv-container {
-  background-color: rgb(156, 238, 193);
-  padding: 2em;
+  margin: 4em auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 80%;
+  background-color: rgb(242, 242, 242);
+  padding: 3em;
 }
 .head {
   margin: 0% 1em 0% 25%;
@@ -10,19 +15,17 @@
 .new-Adv-Form {
   display: flex;
   flex-direction: column;
-  background-image: url("../../asset/woman-walks-bridge.jpg");
-  width: 94%;
-  margin: 0.6em auto;
-  align-items: flex-start;
-  border-radius: 50px;
+  background-color: rgb(5, 48, 12);
+  border-radius: 50px 0px 0px 5px;
+  height: 40em;
 }
 .new-Adv-Form :first-child {
   padding-top: 1.2em;
 }
 .inputs {
-  width: 65%;
+  width: 70%;
   height: 1.8em;
-  margin: 0.3rem auto 1rem 5%;
+  margin: 0.3rem auto 1rem auto;
   padding: 0.1rem 1.5em;
   font-size: 1.2rem;
   background-color: rgba(8, 112, 72, 0.4);
@@ -43,23 +46,15 @@
 .Add-btn:hover {
   background-color: rgb(4, 55, 19);
 }
-@media only screen and (max-width: 664px) {
-  .new-Adv-Form {
-    width: 100%;
-    margin: 0.6em auto;
-    font-size: 0.7em;
-  }
-  .newAdv-container {
-    background-color: rgb(156, 238, 193);
-    padding: 0.3em;
-  }
-  .head {
-    margin-left: 10%;
+@media only screen and (max-width: 930px) {
+  .imgAdd {
+    display: none;
   }
   .inputs {
-    padding: 0.1rem 0.5em;
+    padding: 0.1rem 1.5em;
   }
 }
+
 .ad {
   display: none;
 }
@@ -80,7 +75,12 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
 }
 .portBtn {
   margin-top: 1em;
+}
+.imgAdd {
+  height: 40em;
+  width: 20em;
 }
