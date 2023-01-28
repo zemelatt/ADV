@@ -88,16 +88,16 @@ const Navbar = () => {
               <div>
                 {login ? (
                   <>
+                    <p>
+                      <Link to={`/my-adv/${userId}`} style={{ color: "white" }}>
+                        Your Adventures
+                      </Link>
+                    </p>
                     <p
                       onClick={logout}
                       style={{ cursor: "pointer", color: "red" }}
                     >
                       logout
-                    </p>
-                    <p>
-                      <Link to={`/my-adv/${userId}`} style={{ color: "white" }}>
-                        Your Adventures
-                      </Link>
                     </p>
                   </>
                 ) : (

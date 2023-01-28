@@ -53,9 +53,9 @@ const Register = () => {
     <div>
       <div className="form-container">
         <div className="regForm">
+          <h1 style={{ color: "bisque" }}>Register</h1>
           <h4 className="errDisplayer">{err}</h4>
           <div className="inputdisplayer">
-            {" "}
             <label>Name </label>
             <input
               type="text"

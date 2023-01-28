@@ -49,6 +49,7 @@ const Login = () => {
     <div>
       <div className="form-container">
         <div className="regForm">
+          <h1 style={{ color: "bisque" }}>Log in</h1>
           <h4 className="errDisplayer">{err}</h4>
           <div className="inputdisplayer">
             <label>Name </label>
@@ -78,7 +79,7 @@ const Login = () => {
             Login
           </button>
           <p>
-            If you don't have an account{" "}
+            If you don't have an account{"  "}
             <Link to="/register" style={{ color: "lightblue" }}>
               Register
             </Link>

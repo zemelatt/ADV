@@ -1,7 +1,7 @@
 .adventure {
   display: flex;
   flex-flow: wrap;
-  width: 98%;
+  width: 90%;
   align-items: center;
   background-color: rgba(227, 235, 235, 0.2);
   margin: 1em auto;
@@ -40,7 +40,7 @@
 }
 .descriptionHead {
   display: flex;
-  background-color: rgba(0, 0, 0, 1);
+  background-color: rgb(0, 0, 0);
 }
 .editingIcon {
   position: relative;

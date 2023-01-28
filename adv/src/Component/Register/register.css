@@ -1,7 +1,7 @@
 .form-container {
   background-color: rgba(228, 232, 229, 0.2);
   height: auto;
-  margin: 4em auto;
+  margin: 1em auto;
   border-radius: 17px;
   width: 80%;
   display: flex;
@@ -11,40 +11,34 @@
   flex-direction: column;
   color: black;
   width: 80%;
-
-  margin: 10% auto;
-  background-color: rgba(127, 255, 212, 0.1);
+  margin: 2em auto;
+  background-color: rgba(17, 20, 19, 0.6);
+  border-radius: 12px;
 }
 input {
-  width: 80%;
-  height: 3.5rem;
+  width: 60%;
+  height: 2.7rem;
   margin: auto auto;
-  border: 3px solid rgb(14, 152, 81);
+  border: 3px solid rgb(5, 11, 8);
   border-radius: 5px;
-  color: white;
-  font-size: 1.5rem;
-  background-color: rgba(192, 205, 216, 0.4);
+  font-size: 1.4rem;
+  background-color: rgba(255, 255, 255, 0.1);
   text-align: center;
-  align-items: center;
 }
 .inputdisplayer {
   display: flex;
   flex-direction: column;
 }
 label {
-  font-size: 1.6rem;
-  color: rgb(4, 46, 57);
-  margin-bottom: 0.3em;
+  font-size: 1.5rem;
+  color: rgb(215, 227, 230);
 }
-label:first-child {
-  margin-top: 2rem;
-}
-
 .submit-btn {
   width: 25%;
   margin: 2rem auto;
   color: rgb(255, 255, 255);
   background-color: rgb(74, 141, 76);
+  border: 0.1px;
   padding: 1em;
   border-radius: 5px;
 }
