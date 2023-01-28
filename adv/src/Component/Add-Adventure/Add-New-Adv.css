@@ -17,17 +17,17 @@
   flex-direction: row;
   margin-left: auto;
   margin-right: auto;
-  /* background-color: rgba(229, 229, 222, 0.2); */
   padding: 1em 10%;
   width: 62%;
   align-items: center;
 }
 .newAdv-Form {
   display: flex;
+  width: 49em;
   flex-direction: column;
   background-color: rgba(5, 48, 12);
   border-radius: 50px 0px 0px 5px;
-  height: 40em;
+  height: 40.1em;
 }
 .newAdv-Form :first-child {
   padding-top: 1.2em;
@@ -105,5 +105,5 @@
 }
 .imgAdd {
   height: 40em;
-  width: 100%;
+  width: 105%;
 }

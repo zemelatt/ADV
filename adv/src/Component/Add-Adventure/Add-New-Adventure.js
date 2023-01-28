@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import Axios from "axios";
 import "./Add-New-Adv.css";
-import Im from "../../asset/pexels-photo-1761282.jpeg";
+import Im from "../../asset/jake-melara-Yh6K2eTr_FY-unsplash.jpg";
 
 const AddNewAdventure = () => {
   const [classs, setCllass] = useState("ad");

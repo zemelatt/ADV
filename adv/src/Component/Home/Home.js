@@ -17,7 +17,7 @@ const Home = () => {
     <>
       <div className={classs2}>
         <h2 className="homenots">Check Our Adventure List</h2>
-        <button onClick={() => setclass2("home")}>
+        <button className="adBtn" onClick={() => setclass2("home")}>
           <h3 className="homenotsbtn">OK</h3>
         </button>
       </div>{" "}
