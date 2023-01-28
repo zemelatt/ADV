@@ -1,13 +1,5 @@
 [
   {
-    "adv_id": 2,
-    "countryName": "Ethiopia",
-    "placeName": "Dashin maountain",
-    "advType": "Hiking",
-    "description": "Lorem Ipsum is simply dummy text of the printing a…em Ipsum is simply dummy text of the printing and",
-    "imgFile": "image-1673457261093.51367.jpg"
-  },
-  {
     "adv_id": 3,
     "countryName": "Chile",
     "placeName": "Atacama Desert",
