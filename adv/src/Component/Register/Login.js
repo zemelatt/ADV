@@ -62,7 +62,6 @@ const Login = () => {
             />
           </div>
           <div className="inputdisplayer">
-            {" "}
             <label>Password</label>
             <input
               type="password"

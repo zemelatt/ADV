@@ -1,46 +1,47 @@
 .form-container {
-  background-color: rgb(228, 232, 229);
-  width: 80%;
+  background-color: rgba(228, 232, 229, 0.2);
   height: auto;
   margin: 4em auto;
-  padding-top: 2em;
-  border-radius: 7px;
+  border-radius: 17px;
+  width: 80%;
+  display: flex;
 }
 .regForm {
   display: flex;
   flex-direction: column;
   color: black;
   width: 80%;
-  height: 80%;
-  padding: auto;
-  margin: 1em auto;
-}
 
+  margin: 10% auto;
+  background-color: rgba(127, 255, 212, 0.1);
+}
 input {
-  width: 60%;
+  width: 80%;
   height: 3.5rem;
   margin: auto auto;
+  border: 3px solid rgb(14, 152, 81);
   border-radius: 5px;
   color: white;
   font-size: 1.5rem;
-  background-color: rgb(102, 159, 210, 0.4);
+  background-color: rgba(192, 205, 216, 0.4);
   text-align: center;
+  align-items: center;
 }
 .inputdisplayer {
   display: flex;
   flex-direction: column;
 }
 label {
-  font-size: 1.4rem;
-  color: rgb(125, 196, 215);
-  margin-bottom: 0.4em;
+  font-size: 1.6rem;
+  color: rgb(4, 46, 57);
+  margin-bottom: 0.3em;
 }
 label:first-child {
   margin-top: 2rem;
 }
 
 .submit-btn {
-  width: 15%;
+  width: 25%;
   margin: 2rem auto;
   color: rgb(255, 255, 255);
   background-color: rgb(74, 141, 76);
@@ -50,11 +51,12 @@ label:first-child {
 .submit-btn:hover {
   background-color: rgb(9, 61, 11);
 }
-
+.submit-btn:active {
+  transform: translatex(2em);
+  color: black;
+  background-color: rgb(33, 207, 204);
+}
 @media only screen and (max-width: 500px) {
-  input {
-    width: 90%;
-  }
   .form-container {
     padding-bottom: 1em;
     width: 95%;

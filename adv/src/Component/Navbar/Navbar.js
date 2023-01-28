@@ -67,14 +67,14 @@ const Navbar = () => {
   return (
     <>
       <div>
-        <h1 className="infos">
-          It feels good to be lost in the right direction !!
-        </h1>
+        <h1 className="infos">Share Your Adventures !!</h1>
       </div>
       <div id="navbar">
         <nav>
           <h3 className="logo">
-            <a href="/">ADV</a>
+            <a href="/" style={{ color: "white" }}>
+              ADV
+            </a>
           </h3>
           {sideUp ? (
             <AiFillCaretUp className="nav drop" onClick={drop} />
@@ -88,16 +88,23 @@ const Navbar = () => {
               <div>
                 {login ? (
                   <>
-                    <p onClick={logout} style={{ cursor: "pointer" }}>
+                    <p
+                      onClick={logout}
+                      style={{ cursor: "pointer", color: "red" }}
+                    >
                       logout
                     </p>
                     <p>
-                      <Link to={`/my-adv/${userId}`}>Your Adventures</Link>
+                      <Link to={`/my-adv/${userId}`} style={{ color: "white" }}>
+                        Your Adventures
+                      </Link>
                     </p>
                   </>
                 ) : (
                   <>
-                    <Link to="/login">Login</Link>
+                    <Link to="/login" style={{ color: "white" }}>
+                      Login
+                    </Link>
                   </>
                 )}
               </div>

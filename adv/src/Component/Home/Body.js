@@ -7,7 +7,16 @@ const Body = () => {
   return (
     <div>
       <div className="image-container">
-        <div className="imgex item">
+        <div className="homequotes">
+          <p className="quotes">
+            “If we were meant to stay in one place, we’d have roots instead of
+            feet.”
+          </p>
+          <p>
+            <i className="quotesby">Rachel Wolchin</i>
+          </p>
+        </div>
+        {/* <div className="imgex item">
           <div>
             <h2 className="location-name">London</h2>
             <p className="description">
@@ -18,8 +27,8 @@ const Body = () => {
           </div>
 
           <img src={MyImage} alt="top places" className="homeImg" />
-        </div>
-        <div className="imgez item ">
+        </div> */}
+        {/* <div className="imgez item ">
           <img src={MyImage2} alt="top places" className="homeImg" />
           <div>
             <h2 className="location-name">Peru</h2>
@@ -29,8 +38,8 @@ const Body = () => {
               ever since the 1500s,
             </p>
           </div>
-        </div>
-        <div className="imgey item">
+        </div> */}
+        {/* <div className="imgey item">
           <div>
             <h2 className="location-name">Italy</h2>
 
@@ -41,7 +50,7 @@ const Body = () => {
             </p>
           </div>
           <img src={MyImage3} alt="top places" className="homeImg" />
-        </div>
+        </div> */}
       </div>
     </div>
   );

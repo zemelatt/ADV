@@ -1,19 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora:ital@0;1&family=Roboto:wght@100&display=swap");
+* {
+  color: white;
+}
 #navbar {
   top: 0;
   margin-top: 2.5em;
   position: sticky;
   width: 100%;
   height: 4rem;
-  background: rgb(20, 86, 192);
+  background-color: rgba(0, 0, 0, 0.3);
+  /* background: rgb(20, 86, 192); */
   font-size: 1.3rem;
   z-index: 2;
+  color: white;
 }
 .logo {
   padding: 0rem 0rem 1rem 3rem;
   font-size: 2.7rem;
   float: left;
-  color: inherit;
 }
 .active {
   text-decoration: overline;
@@ -37,7 +41,7 @@
   width: 200px;
   border-radius: 8px;
   border: 2px solid black;
-  background: rgb(22, 57, 171);
+  background: rgb(13, 15, 20);
   z-index: 4;
 }
 .drop {
@@ -47,21 +51,22 @@
 .dropdown::before {
   content: " ";
   position: absolute;
-  color: aliceblue;
   top: -0.3rem;
   right: 0rem;
   padding: 9px;
   width: 25px;
   height: 3px;
   transform: rotate(45deg);
-  background: rgb(22, 57, 171);
+  background: rgb(13, 15, 20);
+  color: inherit;
 }
 .hidden {
   display: none;
 }
 .infos {
-  color: rgb(0, 0, 0);
-  background: rgb(20, 86, 192);
+  color: rgb(247, 239, 239);
+  background-color: black;
+  /* background: rgb(20, 86, 192); */
   position: absolute;
   top: 0;
   width: 100%;

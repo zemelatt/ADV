@@ -1,34 +1,44 @@
-.newAdv-container {
-  margin: 4em auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 80%;
-  background-color: rgb(242, 242, 242);
-  padding: 3em;
+* {
+  margin-right: auto;
+  margin-left: auto;
 }
+.newAdvcontainer {
+  background-color: rgba(250, 235, 215, 0.2);
+  width: 90%;
+}
+
 .head {
   margin: 0% 1em 0% 25%;
   font-size: 1.4em;
   color: antiquewhite;
 }
-.new-Adv-Form {
+.flex {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: auto;
+  /* background-color: rgba(229, 229, 222, 0.2); */
+  padding: 1em 10%;
+  width: 62%;
+  align-items: center;
+}
+.newAdv-Form {
   display: flex;
   flex-direction: column;
-  background-color: rgb(5, 48, 12);
+  background-color: rgba(5, 48, 12);
   border-radius: 50px 0px 0px 5px;
   height: 40em;
 }
-.new-Adv-Form :first-child {
+.newAdv-Form :first-child {
   padding-top: 1.2em;
 }
-.inputs {
+.inputHold {
   width: 70%;
   height: 1.8em;
   margin: 0.3rem auto 1rem auto;
   padding: 0.1rem 1.5em;
   font-size: 1.2rem;
-  background-color: rgba(8, 112, 72, 0.4);
+  background-color: rgba(237, 241, 240, 0);
   border: 1px solid green;
 }
 .formQ {
@@ -36,6 +46,7 @@
   font-size: 1.3em;
   color: antiquewhite;
 }
+
 .Add-btn {
   margin: 1em 45% 2rem auto;
   background-color: rgb(8, 99, 34);
@@ -46,15 +57,26 @@
 .Add-btn:hover {
   background-color: rgb(4, 55, 19);
 }
-@media only screen and (max-width: 930px) {
+.Add-btn:active {
+  background-color: aqua;
+  transform: translateZ(2em);
+}
+#selects {
+  background-color: rgba(70, 154, 126, 0.5);
+}
+@media only screen and (max-width: 900px) {
   .imgAdd {
     display: none;
   }
-  .inputs {
-    padding: 0.1rem 1.5em;
+  .newAdv-Form {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(5, 48, 12);
+    border-radius: 50px 0px 0px 5px;
+    height: 40em;
+    width: 100%;
   }
 }
-
 .ad {
   display: none;
 }
@@ -82,5 +104,5 @@
 }
 .imgAdd {
   height: 40em;
-  width: 20em;
+  width: 100%;
 }

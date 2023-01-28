@@ -1,11 +1,9 @@
 import React, { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
 import Axios from "axios";
 import "./Add-New-Adv.css";
 import Im from "../../asset/pexels-photo-1761282.jpeg";
 
 const AddNewAdventure = () => {
-  const push = useNavigate();
   const [classs, setCllass] = useState("ad");
   const [classs2, setclass2] = useState("");
   const inputRef = useRef(null);
@@ -71,24 +69,24 @@ const AddNewAdventure = () => {
     }
   };
   return (
-    <div className="newAdv-container">
-      <div>
-        <div className={classs2}>
-          <div className={classs}>
-            <h3 style={{ color: "black" }}> {err}</h3>
-            <button className="portBtn" onClick={removeport}>
-              <h1 style={{ color: "black" }}>OK</h1>
-            </button>
-          </div>
+    <div className="newAdvcontainer">
+      <div className={classs2}>
+        <div className={classs}>
+          <h3 style={{ color: "black" }}> {err}</h3>
+          <button className="portBtn" onClick={removeport}>
+            <h1 style={{ color: "black" }}>OK</h1>
+          </button>
         </div>
+      </div>
 
-        <form className="new-Adv-Form">
+      <div className="flex">
+        <form className="newAdv-Form">
           <h3 className="head">Share your adventure</h3>
 
           <h4 className="errDisplayer">{err} </h4>
           <label className="formQ">Country </label>
           <input
-            className="inputs"
+            className="inputHold"
             type="text"
             name="countryName"
             placeholder="Ethiopia"
@@ -99,7 +97,7 @@ const AddNewAdventure = () => {
 
           <label className="formQ">Name of the Place</label>
           <input
-            className="inputs"
+            className="inputHold"
             type="text"
             name="placeName"
             placeholder="Dashin mountains"
@@ -110,7 +108,8 @@ const AddNewAdventure = () => {
 
           <label className="formQ">Type of Adventure</label>
           <select
-            className="inputs"
+            className="inputHold"
+            id="selects"
             type="text"
             name="advType"
             autoComplete="off"
@@ -126,7 +125,7 @@ const AddNewAdventure = () => {
 
           <label className="formQ">Description about the place</label>
           <textarea
-            className="inputs"
+            className="inputHold"
             type="text"
             name="description"
             rows="5"
@@ -138,7 +137,7 @@ const AddNewAdventure = () => {
 
           <label className="formQ">Photo</label>
           <input
-            className="inputs"
+            className="inputHold"
             type="file"
             name="photo"
             accept="image/*"
@@ -150,9 +149,10 @@ const AddNewAdventure = () => {
             Submit
           </button>
         </form>
-      </div>
-      <div className="adjusent">
-        <img src={Im} alt="in" className="imgAdd" />
+
+        <div className="adjusent">
+          <img src={Im} alt="in" className="imgAdd" />
+        </div>
       </div>
     </div>
   );

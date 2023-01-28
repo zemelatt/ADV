@@ -1,45 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora:ital@0;1&family=Roboto:wght@100&display=swap");
-.info {
-  display: none;
-}
-.description {
-  color: rgb(19, 17, 1);
-  padding: 1rem;
-  text-align: justify;
-  text-indent: 2em;
-  line-height: 1.5;
-  font-size: 1.5em;
-}
-.location-name {
-  color: rgb(49, 43, 226);
-  font-size: 1.7;
-}
-.item {
-  background-color: rgba(246, 246, 246, 0);
-  height: 30em;
-  padding: 2% 2% 12% 1%;
-  border-bottom: 1px solid rgb(92, 194, 131);
-  border-right: 1px solid rgb(92, 194, 131);
-  border-radius: 20px 20px;
-}
-.imgey,
-.imgex {
-  margin-top: -17%;
-}
-.imgez {
-  margin-top: 1%;
-}
-.homeImg {
-  width: 90%;
-  height: 400px;
-}
 
 .image-container {
-  display: flex;
-  width: 90%;
-  margin: -5% auto 2rem auto;
-  padding-top: 2em;
+  margin-top: -1em;
 }
+
+.homequotes {
+  width: 100%;
+  align-items: center;
+  font-size: 3em;
+  background-color: rgba(11, 16, 14, 0.2);
+  margin-top: 15%;
+}
+.quotes {
+  color: rgb(252, 252, 198);
+  background-color: rgba(24, 22, 22, 0.3);
+}
+.quotesby {
+  color: rgb(181, 166, 148);
+}
+
+/* 
 @media only screen and (max-width: 1124px) {
   .info {
     display: flex;
@@ -63,18 +43,8 @@
     display: flex;
     background-color: rgba(246, 246, 246, 0.9);
   }
-}
+} */
 @media only screen and (max-width: 540px) {
-  .item {
-    display: block;
-  }
-  .homeImg {
-    width: 70%;
-  }
-  .info {
-    position: relative;
-    z-index: 1;
-  }
 }
 @media only screen and (max-width: 925px) {
 }
