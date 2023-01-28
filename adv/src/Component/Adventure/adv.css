@@ -123,3 +123,30 @@
     font-size: 1.3em;
   }
 }
+.popImg {
+  width: 70%;
+  position: relative;
+  margin-top: 2em;
+}
+.NOport {
+  display: none;
+}
+.port {
+  position: fixed;
+  top: 20%;
+  left: 0%;
+  right: 0%;
+  height: 80%;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 0;
+  background-color: rgba(15, 19, 15, 0.3);
+  border-radius: 8px;
+  padding: 2em;
+}
+.XBtn {
+  color: aliceblue;
+  float: left;
+  cursor: pointer;
+}

@@ -3,7 +3,7 @@
   margin-left: auto;
 }
 .newAdvcontainer {
-  background-color: rgba(250, 235, 215, 0.2);
+  /* background-color: rgba(250, 235, 215, 0.2); */
   width: 90%;
 }
 
@@ -18,12 +18,12 @@
   margin-left: auto;
   margin-right: auto;
   padding: 1em 10%;
-  width: 62%;
+  width: 70%;
   align-items: center;
 }
 .newAdv-Form {
   display: flex;
-  width: 49em;
+  width: 80em;
   flex-direction: column;
   background-color: rgba(5, 48, 12);
   border-radius: 50px 0px 0px 5px;
@@ -105,5 +105,5 @@
 }
 .imgAdd {
   height: 40em;
-  width: 105%;
+  width: 100%;
 }

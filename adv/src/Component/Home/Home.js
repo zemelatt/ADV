@@ -20,7 +20,7 @@ const Home = () => {
         <button className="adBtn" onClick={() => setclass2("home")}>
           <h3 className="homenotsbtn">OK</h3>
         </button>
-      </div>{" "}
+      </div>
       <Body />
       <Compass className="comp" />
     </>

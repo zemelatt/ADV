@@ -4,6 +4,7 @@ const {
   allAdventure,
   logOut,
   getUpdatingfile,
+  view,
 } = require("../routecontrol/routeControl");
 
 router.get(allAdventure);

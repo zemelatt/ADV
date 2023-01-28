@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import Axios from "axios";
 import "./Add-New-Adv.css";
-import Im from "../../asset/jake-melara-Yh6K2eTr_FY-unsplash.jpg";
+import Im from "../../asset/toomas-tartes-Yizrl9N_eDA-unsplash (1).jpg";
 
 const AddNewAdventure = () => {
   const [classs, setCllass] = useState("ad");
@@ -72,7 +72,7 @@ const AddNewAdventure = () => {
     <div className="newAdvcontainer">
       <div className={classs2}>
         <div className={classs}>
-          <h3 style={{ color: "black" }}> {err}</h3>
+          <h3 style={{ color: "black" }}>{err}</h3>
           <button className="portBtn" onClick={removeport}>
             <h1 style={{ color: "black" }}>OK</h1>
           </button>

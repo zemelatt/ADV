@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-
-// import { useRecoilState } from "recoil";
-// import { textState } from "../../atom";
 import { Link, useNavigate } from "react-router-dom";
 import Axios from "axios";
-import "./register.css";
+import "./login.css";
 
 const Login = () => {
   const push = useNavigate();
@@ -47,12 +44,12 @@ const Login = () => {
   };
   return (
     <div>
-      <div className="form-container">
-        <div className="regForm">
+      <div className="login-container">
+        <div className="logForm">
           <h1 style={{ color: "bisque" }}>Log in</h1>
           <h4 className="errDisplayer">{err}</h4>
-          <div className="inputdisplayer">
-            <label>Name </label>
+          <div className="logdisplayer">
+            <label className="labelName">Name </label>
             <input
               type="text"
               name="name"
@@ -60,10 +57,11 @@ const Login = () => {
               placeholder="Abebe kebede"
               value={name}
               onChange={getName}
+              id="inputlogin"
             />
           </div>
-          <div className="inputdisplayer">
-            <label>Password</label>
+          <div className="logdisplayer">
+            <label className="labelName">Password</label>
             <input
               type="password"
               name="password"
@@ -72,10 +70,11 @@ const Login = () => {
               autoComplete="off"
               required
               onChange={getPassword}
+              id="inputlogin"
             />
           </div>
 
-          <button className="submit-btn" onClick={submitt}>
+          <button className="login-btn" onClick={submitt}>
             Login
           </button>
           <p>

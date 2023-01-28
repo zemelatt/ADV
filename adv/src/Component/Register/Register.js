@@ -64,11 +64,13 @@ const Register = () => {
               placeholder="Abebe kebede"
               value={name}
               onChange={getName}
+              className="inputPl"
             />
           </div>
           <div className="inputdisplayer">
             <label>Email</label>
             <input
+              className="inputPl"
               type="email"
               name="email"
               value={email}
@@ -80,6 +82,7 @@ const Register = () => {
           <div className="inputdisplayer">
             <label>Password</label>
             <input
+              className="inputPl"
               type="password"
               name="password"
               value={password}
@@ -91,6 +94,7 @@ const Register = () => {
           <div className="inputdisplayer">
             <label>Repeat your password</label>
             <input
+              className="inputPl"
               type="password"
               name="password2"
               value={password2}

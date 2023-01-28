@@ -17,6 +17,7 @@ const {
   getUpdatingfile,
   Updating,
   deleteAdv,
+  view,
 } = require("./routecontrol/routeControl");
 
 app.use(bodyParser.json());
@@ -70,6 +71,7 @@ app.use("/updating/:id", auth, getUpdatingfile); // getupdating file
 app.use("/update/:id", upload.single("photo"), auth, Updating); // updating file
 ///delete/my-adv/${id}
 app.use("/delete/my-adv_id/:NUM", auth, deleteAdv); //delete adv
+
 app.listen(2222, () => {
   console.log("server runing on 2222");
 });
