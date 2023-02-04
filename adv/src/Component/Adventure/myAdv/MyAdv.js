@@ -65,16 +65,15 @@ const MyAdv = () => {
                     <Link to={`/updating/${val.adv_id}`}>
                       <AiFillEdit className="editIcon" />
                     </Link>
-                    <button>
-                      <div>
-                        <FaTrashAlt
-                          className="deleteIcon"
-                          onClick={() => {
-                            deletemyadv(val.adv_id);
-                          }}
-                        />
-                      </div>
-                    </button>
+
+                    <div>
+                      <FaTrashAlt
+                        className="deleteIcon"
+                        onClick={() => {
+                          deletemyadv(val.adv_id);
+                        }}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>

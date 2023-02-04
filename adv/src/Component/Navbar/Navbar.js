@@ -87,16 +87,16 @@ const Navbar = () => {
         <h1 className="infos">Share Your Adventures !!</h1>
       </div>
       <div id="navbar">
-        <nav>
+        <nav className="subnav">
           <h3 className="logo">
             <a href="/" style={{ color: "white" }}>
               ADV
             </a>
           </h3>
           {sideUp ? (
-            <AiFillCaretUp className="nav drop" onClick={drop} />
+            <AiFillCaretUp className="navLink drop" onClick={drop} />
           ) : (
-            <AiFillCaretDown className="nav drop" onClick={drop} />
+            <AiFillCaretDown className="navLink drop" onClick={drop} />
           )}
           <div className={dropClass}>
             <div onClick={() => setClass("hidden")}>
@@ -125,13 +125,13 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-          <NavLink to="/add-adventure" className="nav">
+          <NavLink to="/add-adventure" className="navLink">
             Add
           </NavLink>
-          <NavLink to="/adv" className="nav">
+          <NavLink to="/adv" className="navLink">
             Adventure
           </NavLink>
-          <NavLink to="/" className="nav">
+          <NavLink to="/" className="navLink">
             Home
           </NavLink>
         </nav>
