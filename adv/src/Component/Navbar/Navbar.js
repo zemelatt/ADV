@@ -58,14 +58,16 @@ const Navbar = () => {
       setOption("activate");
       // setMenu(true);
     } else {
-      setOption("");
+      setOption(" ");
       setBerger("humburger");
+
       // setMenu(true);
     }
   };
   const sidebar = () => {
     setBerger("humburger");
     setMenu(false);
+    setOption(" ");
   };
   const logout = () => {
     sessionStorage.clear("role");
