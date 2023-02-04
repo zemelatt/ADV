@@ -5,7 +5,6 @@ import Axios from "axios";
 
 const Update = () => {
   const userId = sessionStorage.getItem("userId");
-  console.log(userId);
 
   const push = useNavigate();
   const { id } = useParams();
@@ -73,10 +72,6 @@ const Update = () => {
         setclass2("cover");
       });
       push(`/my-adv/${userId}`);
-      // setCountryName("");
-      // setAdvType("");
-      // setDescription("");
-      // setPlaceName("");
     }
   };
 
@@ -85,14 +80,14 @@ const Update = () => {
       <div className={classs2}>
         <div className={classs}>
           <h3 style={{ color: "black" }}> {err}</h3>
-          <button className="portBtn" onClick={removeport}>
+          <button onClick={removeport}>
             <h1 style={{ color: "black" }}>OK</h1>
           </button>
         </div>
       </div>
 
       <form className="edit-Adv-Form">
-        <h3 className="heads">UDATE ADVENTURE</h3>
+        <h3 className="heads">Update Adventure</h3>
 
         <h4 className="errDisplayer">{err} </h4>
         <label className="labelName">Country </label>
@@ -146,7 +141,7 @@ const Update = () => {
         />
 
         <button className="edit-btn" type="submitt" onClick={update}>
-          Submit
+          Update
         </button>
       </form>
     </div>

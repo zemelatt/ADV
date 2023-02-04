@@ -51,6 +51,8 @@ const AddNewAdventure = () => {
       !photo
     ) {
       setErr("Err: all forms must be filled");
+    } else if (description.trim().length < 200) {
+      setErr("Err: description should not be less than 200 words");
     } else {
       Axios.post("http://localhost:2222/sharing_adventure", formData, {
         withCredentials: true,
@@ -74,7 +76,7 @@ const AddNewAdventure = () => {
         <div className={classs}>
           <h3 style={{ color: "black" }}>{err}</h3>
           <button className="portBtn" onClick={removeport}>
-            <h1 style={{ color: "black" }}>OK</h1>
+            <h1 style={{ color: "white" }}>OK</h1>
           </button>
         </div>
       </div>

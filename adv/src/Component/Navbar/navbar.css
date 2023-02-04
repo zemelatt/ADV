@@ -1,14 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora:ital@0;1&family=Roboto:wght@100&display=swap");
-* {
-  color: white;
-}
+
 #navbar {
   top: 0;
   margin-top: 2.5em;
   position: sticky;
   width: 100%;
   height: 5rem;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.6);
   font-size: 1.3em;
   z-index: 2;
   color: white;
@@ -35,7 +33,7 @@
 }
 .dropdown {
   position: absolute;
-  top: 5rem;
+  top: 7.2rem;
   right: 0.1rem;
   padding: 5px;
   width: 200px;
@@ -66,7 +64,6 @@
 .infos {
   color: rgb(247, 239, 239);
   background-color: black;
-  /* background: rgb(20, 86, 192); */
   position: absolute;
   top: 0;
   width: 100%;

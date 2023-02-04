@@ -6,21 +6,25 @@
   width: 80%;
   display: flex;
 }
+::placeholder {
+  color: black;
+}
 #inputlogin {
   height: 2.7rem;
-  width: 70%;
+  width: 80%;
+  color: rgb(255, 255, 255);
   margin: auto auto;
   border: 3px solid rgb(5, 11, 8);
   border-radius: 5px;
-  font-size: 1.4rem;
-  background-color: rgba(255, 255, 255, 0.1);
+  font-size: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.342);
   text-align: center;
 }
 .logForm {
   display: flex;
   flex-direction: column;
   color: black;
-  width: 80%;
+  width: 70%;
   margin: 2em auto;
   background-color: rgba(17, 20, 19, 0.6);
   border-radius: 12px;
@@ -32,6 +36,7 @@
 .logdisplayer {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 .login-btn {
   width: 25%;
@@ -39,8 +44,9 @@
   color: rgb(255, 255, 255);
   background-color: rgb(74, 141, 76);
   border: 0.1px;
-  padding: 1em;
+  padding: 0.5em;
   border-radius: 5px;
+  font-size: 1.2em;
 }
 .login-btn:hover {
   background-color: rgb(9, 61, 11);

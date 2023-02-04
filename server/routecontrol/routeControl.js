@@ -7,6 +7,85 @@ let maxAgee = 2 * 24 * 60 * 60;
 const createToken = (id) => {
   return jwt.sign({ id }, "wknjkwbcjc", { expiresIn: maxAgee });
 };
+module.exports.numberOfLike = (req, res) => {
+  const imgId = req.params.id;
+
+  const noLike = `select * from likeList where imageId='${imgId}'`;
+  db.query(noLike, (err, result) => {
+    let noOfLike = result.length;
+    if (noOfLike < 1) {
+      res.send({ results: 0 });
+    } else {
+      res.send({ results: noOfLike, user: result[0].userId });
+    }
+  });
+};
+module.exports.numberOfhate = (req, res) => {
+  const imgId = req.params.id;
+  const noLike = `select * from dislikelist where imageId='${imgId}'`;
+  db.query(noLike, (err, result) => {
+    let noOfDisLike = result.length;
+    if (noOfDisLike == 0) {
+      res.send({ numOfDisLiker: 0 });
+    } else {
+      res.send({ results: noOfDisLike, disLiker: result[0].userId });
+    }
+  });
+};
+module.exports.getOne = (req, res) => {
+  const { id } = req.params;
+  console.log(id);
+  const allsql = `select * from adventurelist where adv_id = ${id}`;
+  db.query(allsql, (err, result) => {
+    if (err) throw err;
+    res.send(result);
+  });
+};
+module.exports.dislike = (req, res) => {
+  const { id, userId, username } = req.params;
+  console.log(req.params);
+  const allsql = `select * from dislikelist where imageId='${id}' and userId='${userId}' and username='${username}'`;
+  const likesql = `INSERT INTO dislikelist (dislikeId,imageId,userId,username ) values(null,'${id}','${userId}','${username}')`;
+  const Delete = `DELETE FROM dislikelist WHERE imageId='${id}' and userId='${userId}' and username='${username}'`;
+  db.query(allsql, (err, result) => {
+    if (err) throw err;
+    if (result.length == 0) {
+      db.query(likesql, (err, result) => {
+        if (err) throw err;
+        res.send({ note: "hate" });
+      });
+    } else {
+      db.query(Delete, (err, result) => {
+        if (err) throw err;
+        res.send({ note: "normal" });
+      });
+    }
+  });
+};
+module.exports.like = (req, res) => {
+  const imgId = req.params.id;
+  const userId = req.params.userId;
+  const userName = req.params.userName;
+
+  const allsql = `select * from likeList where imageId='${imgId}' and userId='${userId}' AND userName='${userName}'`;
+  const likesql = `INSERT INTO likeList (likeId,imageId,userId,userName ) values(null,'${imgId}','${userId}','${userName}')`;
+  const Delete = `DELETE FROM likeList WHERE imageId='${imgId}' and userId='${userId}' and userName='${userName}'`;
+  db.query(allsql, (err, result) => {
+    if (err) throw err;
+
+    if (result.length == 0) {
+      db.query(likesql, (err, result) => {
+        if (err) throw err;
+        res.send({ note: "liked" });
+      });
+    } else {
+      db.query(Delete, (err, result) => {
+        if (err) throw err;
+        res.send({ note: "dislike" });
+      });
+    }
+  });
+};
 module.exports.allAdventure = (req, res) => {
   const allsql = "select * from adventurelist";
   db.query(allsql, (err, result) => {
@@ -54,6 +133,29 @@ module.exports.register = async (req, res) => {
     }
   );
 };
+module.exports.formatPassword = (req, res) => {
+  const { name, email } = req.body;
+  const sql = `select * from userlist where userName='${name}' AND userEmail='${email}'`;
+  db.query(sql, (err, result) => {
+    if (err) throw err;
+    if (result.length > 0) {
+      res.send({ next: result });
+    } else {
+      res.send({ msg: "no user based on this onfo" });
+    }
+  });
+};
+module.exports.resetPassword = async (req, res) => {
+  const { password } = req.body;
+  const id = req.params.id;
+  const salt = await bcrypt.genSalt();
+  const hashedPassword = await bcrypt.hash(password, salt);
+  const updatePass = `UPDATE userlist SET password='${hashedPassword}'  WHERE id='${id}'`;
+  db.query(updatePass, (err, result) => {
+    if (err) throw err;
+    console.log("updated");
+  });
+};
 module.exports.login = (req, res) => {
   const { name, password } = req.body;
   const sql = `select * from userList where userName='${name}'`;
@@ -69,7 +171,7 @@ module.exports.login = (req, res) => {
         if (name == "admin" && password == "test12") {
           res.send({ destination: "admin", id: result[0].id });
         } else {
-          res.send({ destination: "user", id: result[0].id });
+          res.send({ destination: result[0].userName, id: result[0].id });
         }
       } else {
         res.send({ msg: "Err: password is not correct" });
@@ -118,14 +220,16 @@ module.exports.Updating = (req, res) => {
   });
 };
 module.exports.deleteAdv = (req, res) => {
-  const { NUM } = req.params;
-  const deleteAdv = `DELETE FROM adventurelist WHERE adv_id=${NUM}`;
+  const { advId } = req.params;
+  console.log(req.params);
+  const deleteAdv = `DELETE FROM adventurelist WHERE adv_id=${advId}`;
   db.query(deleteAdv, (err, result) => {
     if (err) throw err;
     console.log("deleted");
     res.send({ msg: "deleted" });
   });
 };
+
 //decode jwt value
 
 function parseJwt(token) {

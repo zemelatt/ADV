@@ -2,18 +2,40 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Axios from "axios";
 import "./register.css";
+import { nameValidator, EmailValidator, Password } from "./userValidator";
 
 const Register = () => {
   const push = useNavigate();
+
   const [err, setErr] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
+  const [pass, setPass] = useState("none");
+  const [Empass, setEmpass] = useState("none");
+  const [passworderr, setPassworderr] = useState("none");
+
   const getName = (e) => {
+    let isTrue = nameValidator(e.target.value.trim());
+    if (isTrue) {
+      setPass("pass");
+      setErr("");
+    } else {
+      setPass("");
+      setErr("name should be more than 5 characters");
+    }
     setName(e.target.value);
   };
   const getEmail = (e) => {
+    let nameRegex = EmailValidator(e.target.value);
+    if (nameRegex) {
+      setEmpass("Empass");
+      setErr("");
+    } else {
+      setEmpass("");
+      setErr("use valid email format");
+    }
     setEmail(e.target.value);
   };
   const getPassword = (e) => {
@@ -29,19 +51,21 @@ const Register = () => {
     formData.append("email", email);
     formData.append("password", password);
     formData.append("password2", password2);
-    const reg2x = /^[a-zA-Z_]+( [a-zA-Z+_]+)*$/;
+    const nameValidat = /^[a-zA-Z_]+( [a-zA-Z+_]+)*$/;
+    const valdatedName = nameValidat.test(name);
     const emailValidator = /[^\s@]+@[^\s@]+\.[^\s@]+/;
-    let nameRegex = reg2x.test(name.trim());
-    let nameLength = name.length;
+    let nameRegex = emailValidator.test(email.trim());
 
-    if (nameLength < 4) {
-      setErr("Err: name should be more than 3 characters");
-    } else if (!emailValidator.test(email)) {
-      setErr("Err: not valid email format");
-    } else if (!nameRegex) {
-      setErr("Err: charcter pattern err!");
+    console.log(valdatedName);
+    if (!valdatedName) {
+      setErr("Err: You cant use character in name !");
+    } else if (name.trim().length < 6) {
+      setErr("Err: name should be more than 5 letters!");
     } else if (password !== password2) {
       setErr("Err: password doesn't much!");
+      setPassworderr("passERR");
+    } else if (!nameRegex) {
+      setErr("Err: use email format!");
     } else {
       Axios.post("http://localhost:2222/member", formData).then((response) => {
         setErr(response.data.msg);
@@ -64,13 +88,13 @@ const Register = () => {
               placeholder="Abebe kebede"
               value={name}
               onChange={getName}
-              className="inputPl"
+              className={`inputPl ${pass}`}
             />
           </div>
           <div className="inputdisplayer">
             <label>Email</label>
             <input
-              className="inputPl"
+              className={`inputPl ${Empass}`}
               type="email"
               name="email"
               value={email}
@@ -82,7 +106,7 @@ const Register = () => {
           <div className="inputdisplayer">
             <label>Password</label>
             <input
-              className="inputPl"
+              className={`inputPl ${passworderr}`}
               type="password"
               name="password"
               value={password}
@@ -94,7 +118,7 @@ const Register = () => {
           <div className="inputdisplayer">
             <label>Repeat your password</label>
             <input
-              className="inputPl"
+              className={`inputPl ${passworderr}`}
               type="password"
               name="password2"
               value={password2}
@@ -107,12 +131,14 @@ const Register = () => {
           <button className="submit-btn" onClick={submitt}>
             Submit
           </button>
-          <p>
-            If you have an account already{" "}
-            <Link to="/login" style={{ color: "lightblue" }}>
-              Login
-            </Link>
-          </p>
+          <div>
+            <p style={{ color: "white" }}>
+              If you have an account already{" "}
+              <Link to="/login" style={{ color: "lightblue" }}>
+                Login
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
     </div>

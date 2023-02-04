@@ -11,3 +11,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.notClicked {
+  font-size: 2em;
+  background-color: rgb(245, 245, 245);
+}
+.dislike {
+  background-color: aliceblue;
+  font-size: 2em;
+}

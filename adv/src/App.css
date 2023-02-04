@@ -5,14 +5,17 @@
   list-style-type: none;
   box-sizing: content-box;
 }
+
 .App {
   text-align: center;
 }
-body {
-  background-color: rgb(220, 224, 228);
+.hate {
+  background-color: rgb(154, 154, 154);
 }
+
 body {
-  background: linear-gradient(rgba(66, 59, 59, 0.5), rgba(31, 30, 30, 0.9)),
+  background-color: rgb(243, 246, 249);
+  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(31, 30, 30, 0.9)),
     url("./asset/michel-stockman-JiOMMVeNUe4-unsplash.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -21,106 +24,11 @@ body {
 }
 .errDisplayer {
   color: rgb(255, 0, 0);
-  background-color: rgba(0, 0, 0, 0.3);
   margin: 0.5em auto;
-  font-size: 1.4em;
+  font-size: 1.2em;
   font-weight: 100;
   position: relative;
   z-index: 0;
   width: auto;
   padding: 0.4em;
-}
-.advDescription {
-  margin: auto auto auto auto;
-  padding-left: 1em;
-}
-.paraD {
-  color: rgb(14, 13, 12);
-  margin-top: 1em;
-}
-.dis {
-  padding: 0.5em;
-  width: auto;
-  color: rgb(0, 0, 0);
-}
-.advImg {
-  width: 18rem;
-  height: 15rem;
-  margin: auto;
-}
-.descriptionHead {
-  display: flex;
-  background-color: rgba(0, 0, 0, 0.1);
-  align-items: center;
-}
-.editingIcon {
-  position: relative;
-  width: 3em;
-  display: flex;
-  flex-direction: row;
-  top: 5px;
-  right: 65px;
-  font-size: larger;
-  gap: 10px;
-  color: black;
-}
-.deleteIcon {
-  cursor: pointer;
-  color: brown;
-}
-
-@media only screen and (max-width: 1190px) {
-  .adventure {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .details {
-    width: 70%;
-    margin: 1em auto;
-  }
-  .advImg {
-    width: 45%;
-    height: 100%;
-  }
-  .advDescription {
-    padding-left: 0em;
-    width: 95%;
-    margin-left: 1em;
-  }
-
-  .editingIcon {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 2em;
-    top: -110px;
-    right: -10px;
-    font-size: 1.5em;
-  }
-}
-@media only screen and (max-width: 630px) {
-  .details {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .descriptionHead {
-    width: 100%;
-    background-color: rgba(7, 9, 10, 0);
-    margin: auto;
-  }
-  .advImg {
-    width: 80%;
-    height: 100%;
-  }
-}
-@media only screen and (max-width: 630px) {
-  .descriptionHead {
-    display: flex;
-    flex-direction: column;
-  }
-  .dis {
-    color: black;
-  }
 }

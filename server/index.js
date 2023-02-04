@@ -17,7 +17,13 @@ const {
   getUpdatingfile,
   Updating,
   deleteAdv,
-  view,
+  formatPassword,
+  like,
+  resetPassword,
+  numberOfLike,
+  getOne,
+  dislike,
+  numberOfhate,
 } = require("./routecontrol/routeControl");
 
 app.use(bodyParser.json());
@@ -70,7 +76,16 @@ app.use("/sharing_adventure", upload.single("photo"), auth, addAdventure); //add
 app.use("/updating/:id", auth, getUpdatingfile); // getupdating file
 app.use("/update/:id", upload.single("photo"), auth, Updating); // updating file
 ///delete/my-adv/${id}
-app.use("/delete/my-adv_id/:NUM", auth, deleteAdv); //delete adv
+app.use("/delete/my-adv_id/:advId", auth, deleteAdv); //delete adv
+
+app.use("/like/my-adv/:id/:userId/:userName", like);
+app.use("/noLike/:id", numberOfLike);
+app.use("/dislikes/:id/:userId/:username", dislike);
+app.use("/nodislike/:id", numberOfhate);
+//
+app.use("/formating/password", upload.single("photo"), formatPassword);
+app.use("/newPassword/:id", upload.single("photo"), resetPassword);
+app.use("/one/adv/:id", getOne);
 
 app.listen(2222, () => {
   console.log("server runing on 2222");

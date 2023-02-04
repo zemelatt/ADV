@@ -1,28 +1,16 @@
-.newAdv-containers {
-  margin: 2% auto auto auto;
-  display: flex;
-  flex-wrap: wrap;
-  flex-shrink: initial;
-  width: 95%;
-  min-height: 80vh;
-  background-color: rgb(253, 253, 253);
-  align-items: center;
-  justify-content: center;
-}
 .heads {
-  margin: auto;
-  font-size: 1.7em;
-  color: antiquewhite;
+  font-size: 1.6em;
 }
 .edit-Adv-Form {
   display: flex;
   flex-direction: column;
-  background-color: rgb(5, 48, 12);
+  background-color: white;
   border-radius: 50px 0px 0px 5px;
-  width: 80%;
+  width: 60%;
   padding: 1em 3em;
-  margin: auto;
+  margin: 2em auto;
 }
+
 .edit-Adv-Form :first-child {
   padding-top: 1.2em;
 }
@@ -33,25 +21,29 @@
   margin: 0.3rem auto 1rem auto;
   padding: 0.1rem 1.5em;
   font-size: 1.2rem;
-  background-color: rgba(8, 112, 72, 0.4);
+
   border: 1px solid green;
-  color: rgb(255, 255, 255);
-  /* text-align: center; */
+  color: rgb(0, 0, 0);
 }
 .labelName {
   font-size: 1.3em;
-  color: antiquewhite;
-  align-items: flex-start;
+  color: rgb(0, 0, 0);
+  margin: auto;
 }
 .edit-btn {
   margin: 1em auto 2rem auto;
-  background-color: rgb(154, 182, 162);
+  color: white;
+  background-color: rgb(0, 0, 0);
   padding: 0.5rem;
   width: 25%;
   border-radius: 7px;
   font-size: 1.4em;
 }
 .edit-btn:hover {
-  background-color: rgb(4, 55, 19);
+  background-color: rgb(5, 89, 30);
   color: aliceblue;
+}
+.edit-btn:active {
+  background-color: rgb(12, 156, 56);
+  transform: translateX(2em);
 }

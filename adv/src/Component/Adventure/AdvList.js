@@ -1,88 +1,111 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Axios from "axios";
 import { AiFillEdit } from "react-icons/ai";
-import { AiOutlineRest } from "react-icons/ai";
-import IM from "../../asset/file.json";
+import { FaTrashAlt } from "react-icons/fa";
+import { AiFillEye } from "react-icons/ai";
 
-const AdvList = ({ all, admin }) => {
+const AdvList = ({ data, admin }) => {
   const push = useNavigate();
   const [zoom, setZoom] = useState("port");
   const [picture, setPic] = useState("");
-  const deleteAdvs = (id) => {
-    Axios.delete(`http://localhost:2222/delete/my-adv_id/${id}`, {
+  const [allList, SetAll] = useState([...data]);
+  const [class2, setclass2] = useState("home");
+  const [dId, setId] = useState("");
+
+  const deleteAdvs = () => {
+    const advId = localStorage.getItem("delete");
+    Axios.delete(`http://localhost:2222/delete/my-adv_id/${advId}`, {
       withCredentials: true,
     }).then((response) => {
-      push("/adv"); //my-adv/128
+      console.log("deleted");
     });
+    setclass2("home");
+    window.location.reload(true);
   };
 
   const zoomOutpic = (id) => {
     setPic(id);
-    console.log(id);
-    // let Data = [];
-    // function obj(IM) {
-    //   for (let i = 0; i < IM.length; i++) {
-    //     Data.push(IM[i].imgFile);
-    //   }
-    //   return Data;
-    // }
-    // obj(IM);
-    // let index = obj(IM).findIndex(id);
-    // setPic(index);
     setZoom("port");
+  };
+  const toDelete = (deleteid) => {
+    setId(deleteid);
+    localStorage.setItem("delete", deleteid);
   };
   return (
     <div className="adventure list">
-      {all.map((val) => (
-        <div className="adv details" key={val.adv_id}>
-          <img
-            src={require(`../../../../server/uploads/${val.imgFile}`)}
-            alt="example"
-            className="advImg"
-            onClick={() => {
-              zoomOutpic(val.imgFile);
-            }}
-          />
-          {picture && (
-            <div className={zoom}>
-              <h1 className="XBtn" onClick={() => setZoom("NOport")}>
-                X
-              </h1>
+      {allList.length > 0 ? (
+        allList.map((val, index) => (
+          <div className="adv details" key={val.adv_id}>
+            <div className="imgEdit">
               <img
-                className="popImg"
-                src={require(`../../../../server/uploads/${picture}`)}
+                src={require(`../../../../server/uploads/${val.imgFile}`)}
+                alt="example"
+                className="advImg"
+                onClick={() => {
+                  zoomOutpic(val.imgFile);
+                }}
               />
             </div>
-          )}
-
-          {admin ? (
-            <div className="editing">
-              <Link to={`/updating/${val.adv_id}`}>
-                <AiFillEdit className="editIcon" />
-              </Link>
-              <div>
-                <AiOutlineRest
-                  onClick={() => {
-                    deleteAdvs(val.adv_id);
-                  }}
-                  className="deleteIcon"
+            {picture && (
+              <div className={zoom}>
+                <h1 className="XBtn" onClick={() => setZoom("NOport")}>
+                  X
+                </h1>
+                <img
+                  className="popImg"
+                  src={require(`../../../../server/uploads/${picture}`)}
                 />
               </div>
-            </div>
-          ) : (
-            <></>
-          )}
+            )}
+            <div className="advDescription">
+              <div className="descriptionHead">
+                <h4 className="countryName dis">{val.countryName}</h4>
+                <p className="nomeOfPlace">{val.placeName}</p>
+              </div>
+              <div className="discriptiondisplay">
+                <p className="description">{val.description}</p>
+              </div>
+              <div className={class2}>
+                <p className="popMsg">Are you sure, You went to delete it ?</p>
+                <div className="popOptions">
+                  <button
+                    className="cancelDlt"
+                    onClick={() => setclass2("home")}
+                  >
+                    No, don't delete !
+                  </button>
 
-          <div className="advDescription">
-            <div className="descriptionHead">
-              <h4 className="countryName dis">{val.countryName}</h4>-
-              <p className="placeName dis">{val.placeName}</p>
+                  <button className="delete-btn" onClick={deleteAdvs}>
+                    Yes, delete it !
+                  </button>
+                </div>
+              </div>
+              <div className="svg">
+                <h2 className="detailsSpot">
+                  <Link className="eyeSpot" to={`/moreDetails/${val.adv_id}`}>
+                    <AiFillEye />
+                  </Link>
+                </h2>
+                {admin ? (
+                  <div className="editing">
+                    <div onClick={() => setclass2("popup")}>
+                      <FaTrashAlt
+                        onClick={() => toDelete(val.adv_id)}
+                        className="deleteIcon"
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <></>
+                )}
+              </div>
             </div>
-            <p className="paraD">{val.description}</p>
           </div>
-        </div>
-      ))}
+        ))
+      ) : (
+        <h1 className="infoGiver">No Adventure added </h1>
+      )}
     </div>
   );
 };

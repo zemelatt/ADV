@@ -8,7 +8,10 @@ const Register = lazy(() => import("./Component/Register/Register"));
 const NewAdv = lazy(() =>
   import("./Component/Add-Adventure/Add-New-Adventure")
 );
+const MoreInfo = lazy(() => import("./Component/Adventure/OneDetails"));
 const Login = lazy(() => import("./Component/Register/Login"));
+const ForgotPass = lazy(() => import("./Component/Register/ForgotPass"));
+const NewPass = lazy(() => import("./Component/Register/NewPass"));
 const MyAdv = lazy(() => import("./Component/Adventure/myAdv/MyAdv"));
 const Update = lazy(() => import("./Component/Adventure/myAdv/Update"));
 
@@ -26,6 +29,9 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/my-adv/:id" element={<MyAdv />} />
             <Route path="/updating/:id" element={<Update />} />
+            <Route path="/formating/password" element={<ForgotPass />} />
+            <Route path="/new-password/:id" element={<NewPass />} />
+            <Route path="/moreDetails/:id" element={<MoreInfo />} />
           </Routes>
         </Suspense>
       </BrowserRouter>

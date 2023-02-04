@@ -14,7 +14,7 @@ const Home = () => {
   }
 
   return (
-    <>
+    <div>
       <div className={classs2}>
         <h2 className="homenots">Check Our Adventure List</h2>
         <button className="adBtn" onClick={() => setclass2("home")}>
@@ -23,7 +23,7 @@ const Home = () => {
       </div>
       <Body />
       <Compass className="comp" />
-    </>
+    </div>
   );
 };
 

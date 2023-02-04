@@ -2,22 +2,20 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Axios from "axios";
 import "./login.css";
-import { useDispatch } from "react-redux";
-import { addTodo } from "../../redux/counterSlice";
 
-const Login = () => {
-  const dispatch = useDispatch(); // dispach
+const ForgotPass = () => {
+  // dispach
 
   const push = useNavigate();
 
   const [err, setErr] = useState("");
   const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setPassword] = useState("");
   const getName = (e) => {
     setName(e.target.value);
   };
 
-  const getPassword = (e) => {
+  const getEmail = (e) => {
     setPassword(e.target.value);
   };
 
@@ -26,20 +24,18 @@ const Login = () => {
 
     let formData = new FormData();
     formData.append("name", name);
-    formData.append("password", password);
+    formData.append("email", email);
 
     if (!name.trim()) {
       setErr("Err: name is empty");
-    } else if (!password.trim()) {
+    } else if (!email.trim()) {
       setErr("Err: password is empty");
     } else {
-      Axios.post("http://localhost:2222/login", formData, {
+      Axios.post("http://localhost:2222/formating/password", formData, {
         withCredentials: true,
       }).then((response) => {
         if (response.data.msg == undefined) {
-          sessionStorage.setItem("userId", response.data.id);
-          dispatch(addTodo(response.data.destination)); //redux
-          return push("/");
+          return push(`/new-password/${response.data.next[0].id}`);
         } else {
           setErr(response.data.msg);
         }
@@ -50,7 +46,7 @@ const Login = () => {
     <div>
       <div className="login-container">
         <div className="logForm">
-          <h1 style={{ color: "white" }}>Log in</h1>
+          <h1 style={{ color: "bisque" }}>Formating password</h1>
           <h4 className="errDisplayer">{err}</h4>
           <div className="logdisplayer">
             <label className="labelName">Name </label>
@@ -58,46 +54,39 @@ const Login = () => {
               type="text"
               name="name"
               autoComplete="off"
-              placeholder="Abebe kebede"
+              placeholder="your registered name"
               value={name}
               onChange={getName}
               id="inputlogin"
             />
           </div>
           <div className="logdisplayer">
-            <label className="labelName">Password</label>
+            <label className="labelName">Email</label>
             <input
-              type="password"
-              name="password"
-              value={password}
-              placeholder="*********"
+              type="email"
+              name="email"
+              value={email}
+              placeholder="your registered email"
               autoComplete="off"
               required
-              onChange={getPassword}
+              onChange={getEmail}
               id="inputlogin"
             />
           </div>
 
           <button className="login-btn" onClick={submitt}>
-            Login
+            Format
           </button>
-          <div>
-            <div>
-              <Link to="/formating/password" style={{ color: "lightblue" }}>
-                Forgot password ?
-              </Link>
-            </div>
-            <p style={{ color: "white" }}>
-              If you don't have an account{" "}
-              <Link to="/register" style={{ color: "lightblue" }}>
-                Register
-              </Link>
-            </p>
-          </div>
+          <p style={{ color: "white" }}>
+            If you don't have an account{"   "}
+            <Link to="/register" style={{ color: "lightblue" }}>
+              Register
+            </Link>
+          </p>
         </div>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default ForgotPass;
