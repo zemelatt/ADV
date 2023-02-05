@@ -9,9 +9,6 @@ const Update = () => {
   const push = useNavigate();
   const { id } = useParams();
 
-  const [classs, setCllass] = useState("ad");
-  const [classs2, setclass2] = useState("");
-
   const [countryName, setCountryName] = useState();
   const [placeName, setPlaceName] = useState("");
   const [advType, setAdvType] = useState("");
@@ -71,21 +68,12 @@ const Update = () => {
         setCllass("MODELstyle");
         setclass2("cover");
       });
-      push(`/my-adv/${userId}`);
+      push(`/adv`);
     }
   };
 
   return (
     <div className="newAdv-containers">
-      <div className={classs2}>
-        <div className={classs}>
-          <h3 style={{ color: "black" }}> {err}</h3>
-          <button onClick={removeport}>
-            <h1 style={{ color: "black" }}>OK</h1>
-          </button>
-        </div>
-      </div>
-
       <form className="edit-Adv-Form">
         <h3 className="heads">Update Adventure</h3>
 

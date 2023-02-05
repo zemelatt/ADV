@@ -62,6 +62,7 @@
     transition: 0.5s;
     padding-right: auto;
     padding-left: auto;
+    z-index: 30;
   }
   #op2 {
     color: #ffffff;

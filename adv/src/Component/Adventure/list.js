@@ -1,29 +1,29 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Axios from "axios";
 import { AiFillEdit } from "react-icons/ai";
 import { FaTrashAlt } from "react-icons/fa";
-import { AiFillEye } from "react-icons/ai";
 
-const AdvList = ({ data, admin }) => {
+import { AiFillEye } from "react-icons/ai";
+// import "./update.css";
+import "./adv.css";
+import Axios from "axios";
+
+const List = ({ advs, admin }) => {
   const push = useNavigate();
   const [zoom, setZoom] = useState("port");
   const [picture, setPic] = useState("");
-  const [allList, SetAll] = useState([...data]);
   const [class2, setclass2] = useState("home");
   const [dId, setId] = useState("");
-
-  const deleteAdvs = () => {
+  const deletemyadv = (num) => {
+    console.log(num);
     const advId = localStorage.getItem("delete");
     Axios.delete(`http://localhost:2222/delete/my-adv_id/${advId}`, {
       withCredentials: true,
     }).then((response) => {
-      console.log("deleted");
+      console.log(response);
+      push(`/adv`); //my-adv/128
     });
-    setclass2("home");
-    window.location.reload(true);
   };
-
   const zoomOutpic = (id) => {
     setPic(id);
     setZoom("port");
@@ -34,8 +34,8 @@ const AdvList = ({ data, admin }) => {
   };
   return (
     <div className="adventure list">
-      {allList.length > 0 ? (
-        allList.map((val, index) => (
+      {advs.length > 0 ? (
+        advs.map((val, index) => (
           <div className="adv details" key={val.adv_id}>
             <div className="imgEdit">
               <img
@@ -76,7 +76,7 @@ const AdvList = ({ data, admin }) => {
                     No, don't delete !
                   </button>
 
-                  <button className="delete-btn" onClick={deleteAdvs}>
+                  <button className="delete-btn" onClick={deletemyadv}>
                     Yes, delete it !
                   </button>
                 </div>
@@ -88,8 +88,11 @@ const AdvList = ({ data, admin }) => {
                   </Link>
                 </h2>
                 {admin ? (
-                  <div className="editing">
-                    <div onClick={() => setclass2("popup")}>
+                  <div>
+                    <div className="editing" onClick={() => setclass2("popup")}>
+                      <Link to={`/updating/${val.adv_id}`}>
+                        <AiFillEdit className="editIcon" />
+                      </Link>
                       <FaTrashAlt
                         onClick={() => toDelete(val.adv_id)}
                         className="deleteIcon"
@@ -110,4 +113,4 @@ const AdvList = ({ data, admin }) => {
   );
 };
 
-export default AdvList;
+export default List;

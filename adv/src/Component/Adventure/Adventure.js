@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./adv.css";
-import AdvList from "./AdvList";
+import List from "./list";
 import { useSelector } from "react-redux";
 import { useQuery } from "react-query";
 import fetchPosts from "./FetchApi";
@@ -32,7 +32,7 @@ const Adventure = () => {
 
   return (
     <>
-      <AdvList data={data} admin={admin} />
+      <List advs={data} admin={admin} />
     </>
   );
 };

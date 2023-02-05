@@ -5,11 +5,15 @@ import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 
 import "./one.css";
 import { useSelector } from "react-redux";
-
+import LoginErr from "../Add-Adventure/LoginErr";
 const OneDetails = () => {
   const toKnowRole = useSelector((state) => state.userRole);
   const userName = toKnowRole.todoReducer[0];
   const userId = sessionStorage.getItem("userId");
+
+  const [classs, setCllass] = useState("ad");
+  const [classs2, setclass2] = useState("home");
+  const [err, setErr] = useState("");
 
   const { id } = useParams();
   const [ones, setDetails] = useState([]);
@@ -24,10 +28,10 @@ const OneDetails = () => {
     }).then((responce) => {
       if (responce.data.user == userId) {
         setClass2("like");
-      } else {
-        setClass2("none");
       }
-
+      // else {
+      //   setClass2(" ");
+      // }
       setLike(responce.data.results);
     });
   });
@@ -54,38 +58,61 @@ const OneDetails = () => {
   }, []);
 
   const dislike = async (id) => {
-    await Axios.post(
-      `http://localhost:2222/dislikes/${id}/${userId}/${userName.text}`,
-      {
-        withCredentials: true,
-      }
-    ).then((res) => {
-      if (res.data.note == "hate") {
-        setClass("dislike");
-      } else {
-        setClass("none");
-      }
-    });
+    if (!userId) {
+      setCllass("MODELstyle");
+      setclass2("cover");
+      setErr("log in first");
+    } else {
+      await Axios.post(
+        `http://localhost:2222/dislikes/${id}/${userId}/${userName.text}`,
+        {
+          withCredentials: true,
+        }
+      ).then((res) => {
+        if (res.data.note == "hate") {
+          setClass("dislike");
+        } else {
+          setClass("none");
+        }
+      });
+    }
   };
   const like = async (id) => {
-    await Axios.post(
-      `http://localhost:2222/like/my-adv/${id}/${userId}/${userName.text}`,
-      {
-        withCredentials: true,
-      }
-    ).then((res) => {
-      if (res.data.note == "liked") {
-        setClass2("like");
-      } else {
-        setClass2("none");
-      }
-    });
+    if (!userId) {
+      setCllass("MODELstyle");
+      setclass2("cover");
+      setErr("log in first");
+    } else {
+      await Axios.post(
+        `http://localhost:2222/like/my-adv/${id}/${userId}/${userName.text}`,
+        {
+          withCredentials: true,
+        }
+      ).then((res) => {
+        if (res.data.note == "liked") {
+          setClass2("like");
+        } else {
+          setClass2("none");
+        }
+      });
+    }
+  };
+  const removeport = () => {
+    setCllass("ad");
+    setclass2("home");
   };
   return (
     <>
+      <LoginErr
+        setclass2={setclass2}
+        classs2={classs2}
+        classs={classs}
+        err={err}
+        removeport={removeport}
+      />
       <div className="detailsCon">
         {ones.map((post) => (
-          <div className="oneContainer">
+          <div className="oneContainer" key={post.adv_id}>
             <div className="imageHolder">
               <img
                 className="oneI"

@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import Axios from "axios";
 import "./Add-New-Adv.css";
 import Im from "../../asset/toomas-tartes-Yizrl9N_eDA-unsplash (1).jpg";
+import LoginErr from "./LoginErr";
 
 const AddNewAdventure = () => {
   const [classs, setCllass] = useState("ad");
@@ -72,14 +73,13 @@ const AddNewAdventure = () => {
   };
   return (
     <div className="newAdvcontainer">
-      <div className={classs2}>
-        <div className={classs}>
-          <h3 style={{ color: "black" }}>{err}</h3>
-          <button className="portBtn" onClick={removeport}>
-            <h1 style={{ color: "white" }}>OK</h1>
-          </button>
-        </div>
-      </div>
+      <LoginErr
+        setclass2={setclass2}
+        classs2={classs2}
+        classs={classs}
+        err={err}
+        removeport={removeport}
+      />
 
       <div className="flex">
         <form className="newAdv-Form">

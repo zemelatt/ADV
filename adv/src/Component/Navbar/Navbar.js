@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
-import { AiFillCaretUp, AiFillFacebook } from "react-icons/ai";
+import { AiFillCaretUp } from "react-icons/ai";
 import { AiFillCaretDown } from "react-icons/ai";
 
 import Axios from "axios";
@@ -8,6 +8,8 @@ import "./navbar.css";
 import "./humburger.css";
 
 import { useSelector } from "react-redux";
+import Login from "./Login";
+
 const Navbar = () => {
   const push = useNavigate();
   const toKnowRole = useSelector((state) => state.userRole);
@@ -56,12 +58,12 @@ const Navbar = () => {
     if (burger !== "humburger is-active") {
       setBerger("humburger is-active");
       setOption("activate");
-      // setMenu(true);
+      setDrop(false);
+      setClass("hidden");
+      setUp(false);
     } else {
       setOption(" ");
       setBerger("humburger");
-
-      // setMenu(true);
     }
   };
   const sidebar = () => {
@@ -72,8 +74,9 @@ const Navbar = () => {
   const logout = () => {
     sessionStorage.clear("role");
     sessionStorage.clear("userId");
+    sessionStorage.clear("persist:root");
     localStorage.clear("persist:root");
-
+    localStorage.clear("delete");
     setlogin(false);
     Axios.get("http://localhost:2222/delete-token", {
       withCredentials: true,
@@ -141,42 +144,14 @@ const Navbar = () => {
           <div className="bar"></div>
         </button>
       </div>
-      {/* {menuClick && ( */}
 
-      <nav onClick={sidebar} className={`side-Option ${activeOption}`}>
-        <NavLink to="/" id="burger-op">
-          Home
-        </NavLink>
-        <NavLink to="/adv" id="burger-op">
-          Adventure
-        </NavLink>
-        <NavLink to="/add-adventure" id="burger-op">
-          Add Adventure
-        </NavLink>
-        {login ? (
-          <>
-            <p>
-              <Link id="op2" to={`/my-adv/${userId}`}>
-                Your Adventures
-              </Link>
-            </p>
-            <p
-              id="op2"
-              onClick={logout}
-              style={{ background: "brown", cursor: "pointer" }}
-            >
-              logout
-            </p>
-          </>
-        ) : (
-          <>
-            <Link id="op2" to="/login">
-              Login
-            </Link>
-          </>
-        )}
-      </nav>
-      {/* )} */}
+      <Login
+        sidebar={sidebar}
+        activeOption={activeOption}
+        login={login}
+        userId={userId}
+        logout={logout}
+      />
     </>
   );
 };

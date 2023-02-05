@@ -13,6 +13,7 @@ module.exports.numberOfLike = (req, res) => {
   const noLike = `select * from likeList where imageId='${imgId}'`;
   db.query(noLike, (err, result) => {
     let noOfLike = result.length;
+
     if (noOfLike < 1) {
       res.send({ results: 0 });
     } else {
@@ -34,7 +35,7 @@ module.exports.numberOfhate = (req, res) => {
 };
 module.exports.getOne = (req, res) => {
   const { id } = req.params;
-  console.log(id);
+
   const allsql = `select * from adventurelist where adv_id = ${id}`;
   db.query(allsql, (err, result) => {
     if (err) throw err;
@@ -43,7 +44,7 @@ module.exports.getOne = (req, res) => {
 };
 module.exports.dislike = (req, res) => {
   const { id, userId, username } = req.params;
-  console.log(req.params);
+
   const allsql = `select * from dislikelist where imageId='${id}' and userId='${userId}' and username='${username}'`;
   const likesql = `INSERT INTO dislikelist (dislikeId,imageId,userId,username ) values(null,'${id}','${userId}','${username}')`;
   const Delete = `DELETE FROM dislikelist WHERE imageId='${id}' and userId='${userId}' and username='${username}'`;
@@ -95,7 +96,7 @@ module.exports.allAdventure = (req, res) => {
 };
 module.exports.logOut = (req, res) => {
   res.clearCookie("token");
-  console.log("logout");
+
   res.send({ msg: "deleted token" });
 };
 
@@ -105,7 +106,7 @@ module.exports.myadv = (req, res) => {
   const adv = `select * from adventurelist where user_id='${id}' `;
   db.query(adv, (err, result) => {
     if (err) throw err;
-    console.log(result);
+
     res.send(result);
   });
 };
@@ -153,7 +154,6 @@ module.exports.resetPassword = async (req, res) => {
   const updatePass = `UPDATE userlist SET password='${hashedPassword}'  WHERE id='${id}'`;
   db.query(updatePass, (err, result) => {
     if (err) throw err;
-    console.log("updated");
   });
 };
 module.exports.login = (req, res) => {
@@ -221,7 +221,7 @@ module.exports.Updating = (req, res) => {
 };
 module.exports.deleteAdv = (req, res) => {
   const { advId } = req.params;
-  console.log(req.params);
+
   const deleteAdv = `DELETE FROM adventurelist WHERE adv_id=${advId}`;
   db.query(deleteAdv, (err, result) => {
     if (err) throw err;
