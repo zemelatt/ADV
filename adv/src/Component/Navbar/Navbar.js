@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { NavLink, Link, useNavigate } from "react-router-dom";
+import Axios from "axios";
 import { AiFillCaretUp } from "react-icons/ai";
 import { AiFillCaretDown } from "react-icons/ai";
 
-import Axios from "axios";
+import CheckLogin from "./CheckLogin";
 import "./navbar.css";
 import "./humburger.css";
 
 import { useSelector } from "react-redux";
-import Login from "./Login";
 
 const Navbar = () => {
   const push = useNavigate();
@@ -70,6 +70,7 @@ const Navbar = () => {
     setBerger("humburger");
     setMenu(false);
     setOption(" ");
+    setClass("hidden");
   };
   const logout = () => {
     sessionStorage.clear("role");
@@ -145,7 +146,7 @@ const Navbar = () => {
         </button>
       </div>
 
-      <Login
+      <CheckLogin
         sidebar={sidebar}
         activeOption={activeOption}
         login={login}

@@ -7,62 +7,25 @@ let maxAgee = 2 * 24 * 60 * 60;
 const createToken = (id) => {
   return jwt.sign({ id }, "wknjkwbcjc", { expiresIn: maxAgee });
 };
-module.exports.numberOfLike = (req, res) => {
-  const imgId = req.params.id;
 
-  const noLike = `select * from likeList where imageId='${imgId}'`;
-  db.query(noLike, (err, result) => {
-    let noOfLike = result.length;
-
-    if (noOfLike < 1) {
-      res.send({ results: 0 });
-    } else {
-      res.send({ results: noOfLike, user: result[0].userId });
-    }
+// fetch all adv
+module.exports.allAdventure = (req, res) => {
+  const allsql = "select * from adventurelist";
+  db.query(allsql, (err, result) => {
+    if (err) throw err;
+    res.send(result);
   });
 };
-module.exports.numberOfhate = (req, res) => {
-  const imgId = req.params.id;
-  const noLike = `select * from dislikelist where imageId='${imgId}'`;
-  db.query(noLike, (err, result) => {
-    let noOfDisLike = result.length;
-    if (noOfDisLike == 0) {
-      res.send({ numOfDisLiker: 0 });
-    } else {
-      res.send({ results: noOfDisLike, disLiker: result[0].userId });
-    }
-  });
-};
+//get adv based on adv_id
 module.exports.getOne = (req, res) => {
   const { id } = req.params;
-
   const allsql = `select * from adventurelist where adv_id = ${id}`;
   db.query(allsql, (err, result) => {
     if (err) throw err;
     res.send(result);
   });
 };
-module.exports.dislike = (req, res) => {
-  const { id, userId, username } = req.params;
-
-  const allsql = `select * from dislikelist where imageId='${id}' and userId='${userId}' and username='${username}'`;
-  const likesql = `INSERT INTO dislikelist (dislikeId,imageId,userId,username ) values(null,'${id}','${userId}','${username}')`;
-  const Delete = `DELETE FROM dislikelist WHERE imageId='${id}' and userId='${userId}' and username='${username}'`;
-  db.query(allsql, (err, result) => {
-    if (err) throw err;
-    if (result.length == 0) {
-      db.query(likesql, (err, result) => {
-        if (err) throw err;
-        res.send({ note: "hate" });
-      });
-    } else {
-      db.query(Delete, (err, result) => {
-        if (err) throw err;
-        res.send({ note: "normal" });
-      });
-    }
-  });
-};
+//counting likes
 module.exports.like = (req, res) => {
   const imgId = req.params.id;
   const userId = req.params.userId;
@@ -87,22 +50,60 @@ module.exports.like = (req, res) => {
     }
   });
 };
-module.exports.allAdventure = (req, res) => {
-  const allsql = "select * from adventurelist";
+//counting dislikes
+module.exports.dislike = (req, res) => {
+  const { id, userId, username } = req.params;
+
+  const allsql = `select * from dislikelist where imageId='${id}' and userId='${userId}' and username='${username}'`;
+  const likesql = `INSERT INTO dislikelist (dislikeId,imageId,userId,username ) values(null,'${id}','${userId}','${username}')`;
+  const Delete = `DELETE FROM dislikelist WHERE imageId='${id}' and userId='${userId}' and username='${username}'`;
   db.query(allsql, (err, result) => {
     if (err) throw err;
-    res.send(result);
+    if (result.length == 0) {
+      db.query(likesql, (err, result) => {
+        if (err) throw err;
+        res.send({ note: "hate" });
+      });
+    } else {
+      db.query(Delete, (err, result) => {
+        if (err) throw err;
+        res.send({ note: "normal" });
+      });
+    }
   });
 };
-module.exports.logOut = (req, res) => {
-  res.clearCookie("token");
 
-  res.send({ msg: "deleted token" });
+// number of likes
+module.exports.numberOfLike = (req, res) => {
+  const imgId = req.params.id;
+
+  const noLike = `select * from likeList where imageId='${imgId}'`;
+  db.query(noLike, (err, result) => {
+    let noOfLike = result.length;
+
+    if (noOfLike < 1) {
+      res.send({ results: 0 });
+    } else {
+      res.send({ results: noOfLike, user: result[0].userId });
+    }
+  });
 };
-
+//number of dislikes
+module.exports.numberOfhate = (req, res) => {
+  const imgId = req.params.id;
+  const noLike = `select * from dislikelist where imageId='${imgId}'`;
+  db.query(noLike, (err, result) => {
+    let noOfDisLike = result.length;
+    if (noOfDisLike == 0) {
+      res.send({ numOfDisLiker: 0 });
+    } else {
+      res.send({ results: noOfDisLike, disLiker: result[0].userId });
+    }
+  });
+};
+// fetch my adv based on user id
 module.exports.myadv = (req, res) => {
   const id = req.params.id;
-
   const adv = `select * from adventurelist where user_id='${id}' `;
   db.query(adv, (err, result) => {
     if (err) throw err;
@@ -110,6 +111,13 @@ module.exports.myadv = (req, res) => {
     res.send(result);
   });
 };
+// logout clear cookies
+module.exports.logOut = (req, res) => {
+  res.clearCookie("token");
+
+  res.send({ msg: "deleted token" });
+};
+// register new user
 module.exports.register = async (req, res) => {
   const { name, email, password } = req.body;
   const salt = await bcrypt.genSalt();
@@ -134,6 +142,7 @@ module.exports.register = async (req, res) => {
     }
   );
 };
+// formating password if user is forgot the password
 module.exports.formatPassword = (req, res) => {
   const { name, email } = req.body;
   const sql = `select * from userlist where userName='${name}' AND userEmail='${email}'`;
@@ -146,6 +155,7 @@ module.exports.formatPassword = (req, res) => {
     }
   });
 };
+// reset the use password
 module.exports.resetPassword = async (req, res) => {
   const { password } = req.body;
   const id = req.params.id;
@@ -156,6 +166,7 @@ module.exports.resetPassword = async (req, res) => {
     if (err) throw err;
   });
 };
+// login user if they are registered
 module.exports.login = (req, res) => {
   const { name, password } = req.body;
   const sql = `select * from userList where userName='${name}'`;
@@ -179,6 +190,7 @@ module.exports.login = (req, res) => {
     }
   });
 };
+// adding new adventures
 module.exports.addAdventure = async (req, res) => {
   const { countryName, placeName, advType, description } = req.body;
   const { filename } = req.file;
@@ -201,7 +213,7 @@ module.exports.addAdventure = async (req, res) => {
     res.send({ msg: "Your adventure is added" });
   });
 };
-
+// updating the the added adventure
 module.exports.getUpdatingfile = (req, res) => {
   const id = req.params.id;
   const adv = `select * from adventurelist where adv_id='${id}' `;
@@ -210,6 +222,7 @@ module.exports.getUpdatingfile = (req, res) => {
     res.send(result);
   });
 };
+// updating adv
 module.exports.Updating = (req, res) => {
   const { id } = req.params;
   const { countryName, placeName, advType, description } = req.body;

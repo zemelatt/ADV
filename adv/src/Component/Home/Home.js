@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
-import "./home.css";
+
 import Body from "./Body";
-import "./compass.css";
 import Compass from "./Compass";
+
+import "./home.css";
+import "./compass.css";
 
 const Home = () => {
   const [classs2, setclass2] = useState("home");

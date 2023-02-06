@@ -4,14 +4,14 @@ import Navbar from "./Component/Navbar/Navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 const Adventure = lazy(() => import("./Component/Adventure/Adventure"));
 const Home = lazy(() => import("./Component/Home/Home"));
-const Register = lazy(() => import("./Component/Register/Register"));
+const Register = lazy(() => import("./Component/Register-Login/Register"));
 const NewAdv = lazy(() =>
   import("./Component/Add-Adventure/Add-New-Adventure")
 );
 const MoreInfo = lazy(() => import("./Component/Adventure/OneDetails"));
-const Login = lazy(() => import("./Component/Register/Login"));
-const ForgotPass = lazy(() => import("./Component/Register/ForgotPass"));
-const NewPass = lazy(() => import("./Component/Register/NewPass"));
+const Login = lazy(() => import("./Component/Register-Login/Login"));
+const ForgotPass = lazy(() => import("./Component/Register-Login/ForgotPass"));
+const NewPass = lazy(() => import("./Component/Register-Login/NewPass"));
 const MyAdv = lazy(() => import("./Component/Adventure/myAdv/MyAdv"));
 const Update = lazy(() => import("./Component/Adventure/myAdv/Update"));
 

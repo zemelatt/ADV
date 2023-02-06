@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
-import Axios from "axios";
 import { useParams } from "react-router-dom";
+import Axios from "axios";
+
 import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 
 import "./one.css";
-import { useSelector } from "react-redux";
+
 import LoginErr from "../Add-Adventure/LoginErr";
+
+import { useSelector } from "react-redux";
 const OneDetails = () => {
   const toKnowRole = useSelector((state) => state.userRole);
   const userName = toKnowRole.todoReducer[0];

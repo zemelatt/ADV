@@ -1,5 +1,5 @@
 .detailsCon {
-  background-color: aliceblue;
+  background-color: rgb(255, 255, 255);
   height: auto;
   padding: 2em auto;
 }
@@ -67,10 +67,10 @@
 }
 .reactions {
   background-color: rgb(154, 154, 154);
-  height: 3em;
+  height: 3rem;
   display: flex;
   gap: 60%;
-  font-size: 1.6em;
+  font-size: 1.6rem;
   color: rgb(255, 255, 255);
   justify-content: center;
   align-items: center;
@@ -89,7 +89,7 @@
 }
 .hate,
 .love {
-  font-size: 2.7em;
+  font-size: 2.7rem;
 }
 .like {
   color: brown;
@@ -126,6 +126,17 @@
   }
   .descriptionHolder {
     box-shadow: 0px 0px 1px 0px Green inset;
+  }
+}
+@media only screen and (max-width: 335px) {
+  .reactions {
+    height: 2rem;
+    gap: 10%;
+    font-size: 1.2rem;
+  }
+  .hate,
+  .love {
+    font-size: 2rem;
   }
 }
 .ad {

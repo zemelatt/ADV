@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Axios from "axios";
+
 import { AiFillEdit } from "react-icons/ai";
 import { FaTrashAlt } from "react-icons/fa";
-
 import { AiFillEye } from "react-icons/ai";
-// import "./update.css";
+
 import "./adv.css";
-import Axios from "axios";
 
 const List = ({ advs, admin }) => {
   const push = useNavigate();

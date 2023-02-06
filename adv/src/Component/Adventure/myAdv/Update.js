@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import "./update.css";
 import Axios from "axios";
+
+import "./update.css";
+import TextAreaFormat from "../../Input-and-textarea-Formats/TextAreaFormat";
+import InputFormat from "../../Input-and-textarea-Formats/InputFormat";
+import LoginErr from "../../Add-Adventure/LoginErr";
 
 const Update = () => {
   const userId = sessionStorage.getItem("userId");
@@ -27,10 +31,7 @@ const Update = () => {
   const getDiscription = (e) => {
     setDescription(e.target.value);
   };
-  const removeport = () => {
-    setCllass("ad");
-    setclass2("");
-  };
+
   useEffect(() => {
     const getFile = (id) => {
       Axios.get(`http://localhost:2222/updating/${id}`, {
@@ -68,38 +69,44 @@ const Update = () => {
         setCllass("MODELstyle");
         setclass2("cover");
       });
-      push(`/adv`);
+      push(`/my-adv/${userId}`);
     }
   };
 
   return (
     <div className="newAdv-containers">
+      {/* <LoginErr
+        setclass2={setclass2}
+        classs2={classs2}
+        classs={classs}
+        err={err}
+        removeport={removeport}
+      /> */}
       <form className="edit-Adv-Form">
         <h3 className="heads">Update Adventure</h3>
 
         <h4 className="errDisplayer">{err} </h4>
         <label className="labelName">Country </label>
-        <input
-          className="inputHolder"
-          type="text"
-          name="countryName"
-          placeholder="Ethiopia"
-          autoComplete="off"
-          value={countryName}
-          onChange={getCountry}
+        <InputFormat
+          InputClassName="inputHolder"
+          TextType="text"
+          NameOfInput="countryName"
+          OnPlaceHolder="Ethiopia"
+          AutoOption="off"
+          OnChangingInputs={getCountry}
+          ValueOfInput={countryName}
         />
 
         <label className="labelName">Name of the Place</label>
-        <input
-          className="inputHolder"
-          type="text"
-          name="placeName"
-          placeholder="Dashin mountains"
-          autoComplete="off"
-          value={placeName}
-          onChange={getPlace}
+        <InputFormat
+          InputClassName="inputHolder"
+          TextType="text"
+          NameOfInput="placeName"
+          OnPlaceHolder="Dashin mountains"
+          AutoOption="off"
+          OnChangingInputs={getPlace}
+          ValueOfInput={placeName}
         />
-
         <label className="labelName">Type of Adventure</label>
         <select
           className="inputHolder"
@@ -117,15 +124,17 @@ const Update = () => {
         </select>
 
         <label className="labelName">Description about the place</label>
-        <textarea
-          className="inputHolder"
-          type="text"
-          name="description"
-          rows="5"
-          column="50"
-          autoComplete="off"
-          value={description}
-          onChange={getDiscription}
+
+        <TextAreaFormat
+          InputClassName="inputHolder"
+          TextType="text"
+          NameOfInput="description"
+          OnPlaceHolder="discribe the place by more than 200 words"
+          AutoOption="off"
+          RowsOfInput="5"
+          ColumnOfInput="50"
+          OnChangingInputs={getDiscription}
+          ValueOfInput={description}
         />
 
         <button className="edit-btn" type="submitt" onClick={update}>

@@ -1,12 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora:ital@0;1&family=Roboto:wght@100&display=swap");
-.homeBody {
-  background: linear-gradient(rgba(66, 59, 59, 0.5), rgba(31, 30, 30, 0.9)),
-    url("../../asset/michel-stockman-JiOMMVeNUe4-unsplash.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-}
+
 .image-container {
   margin-top: -1em;
 }

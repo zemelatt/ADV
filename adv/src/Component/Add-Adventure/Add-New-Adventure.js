@@ -1,8 +1,11 @@
 import React, { useState, useRef } from "react";
 import Axios from "axios";
-import "./Add-New-Adv.css";
-import Im from "../../asset/toomas-tartes-Yizrl9N_eDA-unsplash (1).jpg";
+
 import LoginErr from "./LoginErr";
+import "./Add-New-Adv.css";
+import InputFormat from "../Input-and-textarea-Formats/InputFormat";
+import TextAreaFormat from "../Input-and-textarea-Formats/TextAreaFormat";
+import Im from "../../asset/toomas-tartes-Yizrl9N_eDA-unsplash (1).jpg";
 
 const AddNewAdventure = () => {
   const [classs, setCllass] = useState("ad");
@@ -71,6 +74,7 @@ const AddNewAdventure = () => {
       inputRef.current.value = null;
     }
   };
+
   return (
     <div className="newAdvcontainer">
       <LoginErr
@@ -80,32 +84,31 @@ const AddNewAdventure = () => {
         err={err}
         removeport={removeport}
       />
-
       <div className="flex">
         <form className="newAdv-Form">
           <h3 className="head">Share your adventure</h3>
-
           <h4 className="errDisplayer">{err} </h4>
           <label className="formQ">Country </label>
-          <input
-            className="inputHold"
-            type="text"
-            name="countryName"
-            placeholder="Ethiopia"
-            autoComplete="off"
-            value={countryName}
-            onChange={getCountry}
+          <InputFormat
+            InputClassName={"inputHold"}
+            TextType="text"
+            NameOfInput="countryName"
+            OnPlaceHolder="Ethiopia"
+            AutoOption="off"
+            OnChangingInputs={getCountry}
+            ValueOfInput={countryName}
           />
 
           <label className="formQ">Name of the Place</label>
-          <input
-            className="inputHold"
-            type="text"
-            name="placeName"
-            placeholder="Dashin mountains"
-            autoComplete="off"
-            value={placeName}
-            onChange={getPlace}
+
+          <InputFormat
+            InputClassName={"inputHold"}
+            TextType="text"
+            NameOfInput="placeName"
+            OnPlaceHolder="Dashin mountains"
+            AutoOption="off"
+            OnChangingInputs={getPlace}
+            ValueOfInput={placeName}
           />
 
           <label className="formQ">Type of Adventure</label>
@@ -126,25 +129,26 @@ const AddNewAdventure = () => {
           </select>
 
           <label className="formQ">Description about the place</label>
-          <textarea
-            className="inputHold"
-            type="text"
-            name="description"
-            rows="5"
-            column="50"
-            autoComplete="off"
-            value={description}
-            onChange={getDiscription}
-          />
 
+          <TextAreaFormat
+            InputClassName="inputHold"
+            TextType="text"
+            NameOfInput="description"
+            OnPlaceHolder="discribe the place by more than 200 words"
+            AutoOption="off"
+            RowsOfInput="5"
+            ColumnOfInput="50"
+            OnChangingInputs={getDiscription}
+            ValueOfInput={description}
+          />
           <label className="formQ">Photo</label>
-          <input
-            className="inputHold"
-            type="file"
-            name="photo"
-            accept="image/*"
-            ref={inputRef}
-            onChange={getPhoto}
+          <InputFormat
+            InputClassName={"inputHold"}
+            TextType="file"
+            NameOfInput="photo"
+            Accept="image/*"
+            OnChangingInputs={getPhoto}
+            RefValue={inputRef}
           />
 
           <button className="Add-btn" type="submitt" onClick={SubmittInputs}>

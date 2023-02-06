@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
 const LoginErr = ({ classs, classs2, err, setclass2 }) => {
   return (
     <div className={classs2}>
       <div className={classs}>
         <h3 style={{ color: "black" }}>{err}</h3>
-        <button className="portBtn" onClick={() => setclass2("home")}>
+        <button className="portBtn" onClick={() => setclass2("hidden")}>
           <h1 style={{ color: "white" }}>OK</h1>
         </button>
       </div>

@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
-import "./adv.css";
-import List from "./list";
 import { useSelector } from "react-redux";
 import { useQuery } from "react-query";
+
 import fetchPosts from "./FetchApi";
+import List from "./list";
+
+import "./adv.css";
+
 const Adventure = () => {
   const toKnowRole = useSelector((state) => state.userRole);
   const [admin, setAdmin] = useState(false);

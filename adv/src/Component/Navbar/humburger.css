@@ -12,6 +12,9 @@
   color: bisque;
 }
 @media only screen and (max-width: 900px) {
+  .dropdown {
+    display: none;
+  }
   .humburger {
     display: block;
     float: right;
