@@ -73,7 +73,7 @@ app.use("/login", upload.single("photo"), login); //login user
 
 app.use("/all-adventures", allAdventure); // getting all adventure
 app.use("/my-adv/:id", auth, myadv); //view my adventure by id
-app.use("/one/adv/:id", auth, getOne); //view one adv by advId
+app.use("/one/adv/:id", getOne); //view one adv by advId
 
 app.use("/sharing_adventure", upload.single("photo"), auth, addAdventure); //add adventure
 app.use("/updating/:id", auth, getUpdatingfile); // getupdating file

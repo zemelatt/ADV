@@ -10,7 +10,7 @@
   width: 65%;
   min-height: 10%;
   z-index: 0;
-  background-color: rgba(247, 250, 247, 0.8);
+  background-color: rgba(247, 250, 247, 0.9);
   border-radius: 10px;
   border: 1px solid rgb(74, 69, 69);
 }
@@ -42,6 +42,9 @@
 }
 .delete-btn:hover {
   background-color: rgb(247, 106, 106);
+}
+.infoGiver {
+  color: rgb(17, 21, 24);
 }
 .popMsg {
   color: rgb(10, 9, 8);

@@ -23,6 +23,9 @@ const Navbar = () => {
 
   const [sideUp, setUp] = useState(false);
   const [activeOption, setOption] = useState("");
+  const [navClass, setNav] = useState("");
+
+  const [blur, setBlur] = useState("");
 
   // chiking if  user is logged in
   useEffect(() => {
@@ -86,17 +89,26 @@ const Navbar = () => {
     });
     push("/");
   };
-
+  window.addEventListener("scroll", () => {
+    const pos = window.scrollY;
+    if (pos > 690) {
+      setNav("main");
+    } else {
+      setNav("");
+    }
+    if (pos > 350) {
+      setBlur("blur");
+    } else {
+      setBlur("");
+    }
+  });
   return (
     <>
-      <div>
-        <h1 className="infos">Share Your Adventures !!</h1>
-      </div>
-      <div id="navbar">
+      <div className={`navbar ${navClass} ${blur}`}>
         <nav className="subnav">
           <h3 className="logo">
             <a href="/" style={{ color: "white" }}>
-              ADV
+              <span style={{ color: "bisque" }}>AD</span>V
             </a>
           </h3>
           {sideUp ? (

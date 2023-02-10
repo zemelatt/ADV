@@ -86,6 +86,11 @@ const Login = () => {
             Login
           </button>
           <div>
+            <div className="fortest">
+              <p style={{ color: "white" }}>
+                Demo - name: admin password: test12
+              </p>
+            </div>
             <div>
               <Link to="/formating/password" style={{ color: "lightblue" }}>
                 Forgot password ?

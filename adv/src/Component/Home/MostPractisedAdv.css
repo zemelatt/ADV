@@ -1,0 +1,143 @@
+.aboutAdv {
+  background-color: rgb(229, 226, 226);
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  flex-direction: row;
+  border-color: rgba(221, 231, 220, 0.29);
+  overflow: hidden;
+}
+.aboutAdvContainer,
+.aboutAdvSafari {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+.aboutAdvSafari {
+  background-color: rgb(178, 208, 237);
+}
+.aboutAdvContainer {
+  /* background-color: aqua; */
+  background-color: rgb(224, 235, 245);
+}
+.safariDescription,
+.homeDescription {
+  color: rgb(0, 0, 0);
+  font-size: 1.7em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  margin-top: 3.5em;
+  min-width: 8em;
+  height: 2em;
+  padding: 0.4em;
+  background-color: rgb(229, 226, 226);
+  border: 1px solid rgb(255, 255, 255);
+  z-index: 0;
+}
+.safariDescription {
+  background-color: aliceblue;
+  margin-left: -4em;
+}
+.homeDescription {
+  background-color: aliceblue;
+  margin-right: -4em;
+}
+.animatedSafari,
+.animatedDiv {
+  display: flex;
+  flex-direction: row;
+  width: 96%;
+  margin: auto 1em;
+  transition: 0.4s ease-in-out;
+}
+.animatedDiv {
+  margin-left: -110em;
+}
+.animatedSafari {
+  margin-right: -110em;
+}
+.start {
+  margin-left: 4em;
+  margin-right: 0em;
+}
+.homeImg {
+  width: 70%;
+  height: 25em;
+}
+.mostPracticed {
+  display: flex;
+  align-items: flex-start;
+  font-size: 1.8em;
+  padding-left: 2%;
+  background-color: aliceblue;
+  /* background-color: aqua; */
+}
+.advName {
+  font-size: 1.2em;
+}
+@media only screen and (max-width: 1106px) {
+  .aboutAdv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    height: 100vh;
+  }
+  .aboutAdvContainer,
+  .aboutAdvSafari {
+    height: 60%;
+    width: 90%;
+    background-color: rgb(255, 255, 255);
+  }
+
+  .homeImg {
+    width: 80%;
+    height: 20em;
+  }
+  .safariDescription,
+  .homeDescription {
+    font-size: 1em;
+    gap: 1em;
+    margin-top: 0em;
+    border: 2px solid black;
+    background-color: rgb(255, 255, 255);
+  }
+  .safariDescription {
+    margin-top: 5em;
+  }
+  .homeDescription {
+    margin-top: 3em;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mostPracticed {
+    background-color: rgba(255, 255, 255);
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .aboutAdv {
+    gap: 1em;
+  }
+  .safariDescription,
+  .homeDescription {
+    font-size: 1em;
+    margin: 0em auto;
+  }
+  .safariDescription {
+    margin-top: -2em;
+  }
+  .homeDescription {
+    margin-bottom: -2em;
+  }
+  .animatedSafari,
+  .animatedDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

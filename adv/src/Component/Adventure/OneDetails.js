@@ -3,7 +3,8 @@ import { useParams } from "react-router-dom";
 import Axios from "axios";
 
 import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
-
+import { GiLoveMystery } from "react-icons/gi";
+import { RiDislikeLine } from "react-icons/ri";
 import "./one.css";
 
 import LoginErr from "../Add-Adventure/LoginErr";
@@ -123,7 +124,7 @@ const OneDetails = () => {
               />
               <div className="reactions">
                 <div className="lovesign">
-                  <FaThumbsUp
+                  <GiLoveMystery
                     className={`love ${className2}`}
                     onClick={() => {
                       like(post.adv_id);
@@ -132,7 +133,7 @@ const OneDetails = () => {
                   <p>{liks}</p>
                 </div>
                 <div className="notlikes">
-                  <FaThumbsDown
+                  <RiDislikeLine
                     onClick={() => {
                       dislike(post.adv_id);
                     }}
@@ -146,7 +147,7 @@ const OneDetails = () => {
               <div className="placeCountry">
                 <div
                   className="countryName"
-                  style={{ color: "white", fontSize: "1.2em" }}
+                  style={{ color: "black", fontSize: "1.2em" }}
                 >
                   {post.countryName}-{post.placeName}
                 </div>

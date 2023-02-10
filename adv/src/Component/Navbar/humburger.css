@@ -52,16 +52,19 @@
     display: flex;
     flex-direction: column;
     background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(66, 59, 59, 0.5));
-    width: 60%;
-    height: 70vh;
+    width: 70%;
+    height: 10vh;
+    top: 4em;
     margin-left: 40%;
-    right: -60%;
-    transition: 0.5s;
+    right: -70%;
+    transition: 1s;
+    z-index: 30;
   }
   .side-Option.activate {
     line-height: 2.5rem;
     height: 70vh;
     right: 0;
+    width: 70%;
     transition: 0.5s;
     padding-right: auto;
     padding-left: auto;

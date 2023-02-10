@@ -121,6 +121,8 @@ const AddNewAdventure = () => {
             value={advType}
             onChange={getType}
           >
+            <option value="">Select here</option>
+            <option value="yoga">Yoga</option>
             <option value="Camping">Camping</option>
             <option value="Canoeing">Skydiving</option>
             <option value="Climbing">Climbing</option>
