@@ -16,16 +16,15 @@
   max-width: 25em;
   height: 35em;
   display: flex;
-  gap: 1em;
+  gap: 4em;
   align-items: center;
   justify-content: center;
-  margin: auto 1.5em;
+  margin: auto auto;
   transition: 0.5s;
   padding: 1em;
 }
 .continentContainer:hover {
-  transform: scale(1.2);
-  z-index: 200;
+  transform: scale(1.1);
 }
 .continentProp {
   position: relative;
