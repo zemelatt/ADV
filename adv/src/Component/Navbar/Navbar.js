@@ -3,7 +3,7 @@ import { NavLink, Link, useNavigate } from "react-router-dom";
 import Axios from "axios";
 import { AiFillCaretUp } from "react-icons/ai";
 import { AiFillCaretDown } from "react-icons/ai";
-
+import { GiMountainClimbing } from "react-icons/gi";
 import CheckLogin from "./CheckLogin";
 import "./navbar.css";
 import "./humburger.css";
@@ -108,7 +108,10 @@ const Navbar = () => {
         <nav className="subnav">
           <h3 className="logo">
             <a href="/" style={{ color: "white" }}>
-              <span style={{ color: "bisque" }}>AD</span>V
+              <span className="logoContent" style={{ color: "bisque" }}>
+                <GiMountainClimbing />
+                AD
+              </span>
             </a>
           </h3>
           {sideUp ? (
@@ -135,7 +138,7 @@ const Navbar = () => {
                   </>
                 ) : (
                   <>
-                    <Link to="/login" style={{ color: "white" }}>
+                    <Link to="/login" style={{ color: "black" }}>
                       Login
                     </Link>
                   </>

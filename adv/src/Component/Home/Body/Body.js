@@ -12,6 +12,11 @@ const Body = () => {
     <div>
       <div className="image-container">
         <div className="homequotes">
+          <div className="advice">
+            <h6>
+              Let's Make Life <div id="spin"></div>
+            </h6>
+          </div>
           <p className="quotes">
             “If we were meant to stay in one place, we’d have roots instead of
             feet.”

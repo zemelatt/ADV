@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 
 import Body from "./Body/Body";
 
-import MostPractisedAdv from "./MostPractisedAdv.js";
+import MostPractisedAdv from "./MostPractisedAdv/MostPractisedAdv.js";
 import Continent from "./Continent/Continent";
+import Benefits from "./Benefits/Benefits";
 
 import "./home.css";
 
@@ -29,6 +30,7 @@ const Home = () => {
       </div>
       <MostPractisedAdv />
       <Continent />
+      <Benefits />
     </div>
   );
 };

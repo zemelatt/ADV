@@ -60,7 +60,7 @@
   margin-right: -110em;
 }
 .start {
-  margin-left: 4em;
+  margin-left: 0em;
   margin-right: 0em;
 }
 .homeImg {
@@ -72,8 +72,7 @@
   align-items: flex-start;
   font-size: 1.8em;
   padding-left: 2%;
-  background-color: aliceblue;
-  /* background-color: aqua; */
+  background-color: rgb(95, 97, 97);
 }
 .advName {
   font-size: 1.2em;
@@ -83,11 +82,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
     height: 100vh;
   }
   .aboutAdvContainer,
   .aboutAdvSafari {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 60%;
     width: 90%;
     background-color: rgb(255, 255, 255);

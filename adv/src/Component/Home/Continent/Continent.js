@@ -30,7 +30,7 @@ const Continent = () => {
     <div className="mainCintainer">
       <h2 className="continentHeader">Where do you went to go ?</h2>
       <div className="continent">
-        <Carousel responsive={responsive} showDots={true}>
+        <Carousel responsive={responsive} showDots={false}>
           <div>
             <div className="continentContainer">
               <div className="continentProp">
