@@ -11,7 +11,7 @@ import "./home.css";
 const Home = () => {
   const [classs2, setclass2] = useState("home");
   useEffect(() => {
-    setTimeout(greet, 5000);
+    setTimeout(greet, 9000);
   }, []);
   function greet(e) {
     setclass2("intros");

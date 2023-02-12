@@ -5,7 +5,7 @@ import Axios from "axios";
 import { AiFillEdit } from "react-icons/ai";
 import { FaTrashAlt } from "react-icons/fa";
 import { AiFillEye } from "react-icons/ai";
-
+import { AiOutlineCloseCircle } from "react-icons/ai";
 import "./adv.css";
 
 const List = ({ advs, admin }) => {
@@ -49,9 +49,11 @@ const List = ({ advs, admin }) => {
             </div>
             {picture && (
               <div className={zoom}>
-                <h1 className="XBtn" onClick={() => setZoom("NOport")}>
-                  X
-                </h1>
+                <AiOutlineCloseCircle
+                  className="XBtn"
+                  onClick={() => setZoom("NOport")}
+                />
+
                 <img
                   className="popImg"
                   src={require(`../../../../server/uploads/${picture}`)}

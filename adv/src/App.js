@@ -20,7 +20,13 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Navbar />
-        <Suspense fallback={<h2>Waiting for it...</h2>}>
+        <Suspense
+          fallback={
+            <h2 style={{ color: "white", marginTop: "10%" }}>
+              Waiting for it...
+            </h2>
+          }
+        >
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/adv" element={<Adventure />} />

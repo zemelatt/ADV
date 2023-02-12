@@ -58,7 +58,7 @@
   color: black;
   padding: 0.4em;
   font-size: 1.4em;
-  max-width: 8em;
+  width: 3em;
 }
 .home {
   display: none;

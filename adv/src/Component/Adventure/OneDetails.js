@@ -147,7 +147,7 @@ const OneDetails = () => {
               <div className="placeCountry">
                 <div
                   className="countryName"
-                  style={{ color: "black", fontSize: "1.2em" }}
+                  style={{ color: "black", fontSize: "1.3em" }}
                 >
                   {post.countryName}-{post.placeName}
                 </div>

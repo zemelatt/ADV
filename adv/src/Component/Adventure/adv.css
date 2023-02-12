@@ -56,7 +56,6 @@
   flex-flow: wrap;
   width: 100%;
   height: auto;
-  /* background-color: rgba(255, 255, 255, 0.8); */
 }
 .details {
   top: 1em;
@@ -77,11 +76,12 @@
   flex-direction: column;
   align-items: center;
   width: auto;
-  background-color: antiquewhite;
+  background-color: rgb(244, 242, 239);
+  border-radius: 20px;
 }
 
 .dis {
-  padding: 0.5em;
+  padding: 0.3em;
   width: auto;
   color: white;
   margin-left: 10%;
@@ -95,7 +95,7 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(245, 244, 244, 0.8);
   align-items: center;
   justify-content: center;
   margin-bottom: 0.8em;
@@ -106,20 +106,22 @@
   font-size: 1.5em;
 }
 .description {
-  color: rgb(14, 13, 12);
+  color: rgb(96, 96, 95);
   margin-top: 0.1em;
   padding: 0.4rem;
+  line-height: 1.5;
 }
 .imgEdit {
   display: flex;
   flex-direction: row;
 }
 .svg {
-  margin-top: 0.8em;
+  margin-top: 1.5em;
   display: flex;
   flex-direction: row;
   width: 100%;
   gap: 2em;
+  align-items: center;
 }
 .detailsSpot {
   margin-left: auto;
@@ -200,11 +202,14 @@
     margin: auto;
   }
   .description {
-    padding: 3%;
-    background-color: rgba(245, 245, 171, 0.4);
+    width: 96%;
+    background-color: rgba(255, 255, 255, 0.8);
     border-radius: 0px 0px 10px 10px;
     line-height: 1.6;
     font-size: 1.3em;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1rem;
   }
   .editing {
     display: flex;
@@ -227,22 +232,27 @@
 }
 .port {
   position: fixed;
-  top: 20%;
+  top: 12%;
   left: 0%;
   right: 0%;
-  height: 70%;
-  width: 70%;
+  height: 80%;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin-left: auto;
   margin-right: auto;
   z-index: 0;
-  background-color: rgba(15, 19, 15, 0.3);
+  background-color: rgba(255, 255, 255);
   border-radius: 8px;
   padding: 2em;
 }
 .XBtn {
-  color: aliceblue;
-  float: left;
+  color: rgb(0, 0, 0);
+  font-size: 2.4rem;
   cursor: pointer;
+  margin-left: 80%;
 }
 @media only screen and (max-width: 250px) {
   .popOptions {

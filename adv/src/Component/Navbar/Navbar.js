@@ -125,7 +125,11 @@ const Navbar = () => {
                 {login ? (
                   <>
                     <p>
-                      <Link to={`/my-adv/${userId}`} style={{ color: "white" }}>
+                      <Link
+                        onClick={() => setUp(false)}
+                        style={{ color: "black" }}
+                        to={`/my-adv/${userId}`}
+                      >
                         Your Adventures
                       </Link>
                     </p>
@@ -150,13 +154,31 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-          <NavLink to="/add-adventure" className="navLink">
+          <NavLink
+            onClick={() => {
+              setClass("hidden"), setUp(false);
+            }}
+            to="/add-adventure"
+            className="navLink"
+          >
             Add
           </NavLink>
-          <NavLink to="/adv" className="navLink">
+          <NavLink
+            to="/adv"
+            className="navLink"
+            onClick={() => {
+              setClass("hidden"), setUp(false);
+            }}
+          >
             Adventure
           </NavLink>
-          <NavLink to="/" className="navLink">
+          <NavLink
+            to="/"
+            className="navLink"
+            onClick={() => {
+              setClass("hidden"), setUp(false);
+            }}
+          >
             Home
           </NavLink>
         </nav>
