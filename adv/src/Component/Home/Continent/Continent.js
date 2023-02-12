@@ -1,9 +1,10 @@
 import React from "react";
 import Africa from "../../../asset/africa.jpg";
+import Europ from "../../../asset/Kenya.Multigenerational-safari.home_.jpg";
 import Ausralia from "../../../asset/ausralia.webp";
 import Asia from "../../../asset/asia.webp";
 import "./continent.css";
-
+import ContinentProp from "./ContinentProp";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -31,88 +32,41 @@ const Continent = () => {
       <h2 className="continentHeader">Where do you went to go ?</h2>
       <div className="continent">
         <Carousel responsive={responsive} showDots={false}>
-          <div>
-            <div className="continentContainer">
-              <div className="continentProp">
-                <div className="coverOverLay">
-                  <h1 className="ContinentName">Asia</h1>
-                </div>
-                <img src={Asia} className="c1Image" />
-
-                <div className="c1Description">
-                  This is one of my all-time favorite adventure life quotes.
+          <ContinentProp
+            img={Asia}
+            description="This is one of my all-time favorite adventure life quotes.
                   Making the leap of faith can be daunting, but it always leads
-                  to breakthroughs in the end.
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            {" "}
-            <div className="continentContainer">
-              <div className="continentProp">
-                <div className="coverOverLay">
-                  <h1 className="ContinentName">Ausralia</h1>
-                </div>
-                <img src={Ausralia} className="c1Image" />
-
-                <div className="c1Description">
-                  This is one of my all-time favorite adventure life quotes.
+                  to breakthroughs in the end."
+            Continent="Asia"
+          />
+          <ContinentProp
+            img={Ausralia}
+            description="This is one of my all-time favorite adventure life quotes.
                   Making the leap of faith can be daunting, but it always leads
-                  to breakthroughs in the end.
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div className="continentContainer">
-              <div className="continentProp">
-                <div className="coverOverLay">
-                  <h1 className="ContinentName">Asia</h1>
-                </div>
-                <img src={Asia} className="c1Image" />
-
-                <div className="c1Description">
-                  This is one of my all-time favorite adventure life quotes.
+                  to breakthroughs in the end."
+            Continent="Australia"
+          />
+          <ContinentProp
+            img={Europ}
+            description="This is one of my all-time favorite adventure life quotes.
                   Making the leap of faith can be daunting, but it always leads
-                  to breakthroughs in the end.
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div className="continentContainer">
-              <div className="continentProp">
-                <div className="coverOverLay">
-                  <h1 className="ContinentName">Asia</h1>
-                </div>
-                <img src={Asia} className="c1Image" />
-
-                <div className="c1Description">
-                  This is one of my all-time favorite adventure life quotes.
+                  to breakthroughs in the end."
+            Continent="Europ"
+          />
+          <ContinentProp
+            img={Africa}
+            description="This is one of my all-time favorite adventure life quotes.
                   Making the leap of faith can be daunting, but it always leads
-                  to breakthroughs in the end.
-                </div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div className="continentContainer">
-              <div className="continentProp">
-                <div className="coverOverLay">
-                  <h1 className="ContinentName">Africa</h1>
-                </div>
-                <img src={Africa} className="c1Image" />
-
-                <div className="c1Description">
-                  This is one of my all-time favorite adventure life quotes.
+                  to breakthroughs in the end."
+            Continent="Africa"
+          />
+          <ContinentProp
+            img={Asia}
+            description="This is one of my all-time favorite adventure life quotes.
                   Making the leap of faith can be daunting, but it always leads
-                  to breakthroughs in the end.
-                </div>
-                {""}
-              </div>
-            </div>
-          </div>
+                  to breakthroughs in the end."
+            Continent="Asia"
+          />
         </Carousel>
       </div>
     </div>

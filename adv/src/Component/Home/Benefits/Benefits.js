@@ -5,6 +5,8 @@ import mentalH from "../../../asset/mentalEdited.jpg";
 import FriendsH from "../../../asset/friends.jpg";
 import acomplishiment from "../../../asset/aco.jpg";
 
+import Benefit from "./Benefit";
+
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 const Benefits = () => {
@@ -33,12 +35,9 @@ const Benefits = () => {
   return (
     <>
       <Carousel
-        // additionalTransfrom={0}
         arrows={false}
         autoPlay
-        // autoPlaySpeed={1}
         centerMode={false}
-        // customTransition="all 5s linear"
         transitionDuration={1000}
         draggable={true}
         focusOnSelect={false}
@@ -49,46 +48,10 @@ const Benefits = () => {
         renderDotsOutside={false}
         responsive={responsive}
       >
-        <div className="benefits">
-          <div className="benefitsContainer">
-            <div className="benefit">
-              <div className="benefitOverLay"></div>
-              <img src={PH} className="benefitImg" />
-              <div className="bottom-left">Improved physical health</div>
-            </div>
-          </div>
-        </div>
-        <div className="benefits">
-          <div className="benefitsContainer">
-            <div className="benefit">
-              <div className="benefitOverLay"></div>
-              <img src={mentalH} className="benefitImg" />
-              <div className="bottom-left">
-                Positive effects on mental health
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="benefits">
-          <div className="benefitsContainer">
-            <div className="benefit">
-              <div className="benefitOverLay"></div>
-              <img src={FriendsH} className="benefitImg" />
-              <div className="bottom-left">
-                Make new friends and Bond Quickly
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="benefits">
-          <div className="benefitsContainer">
-            <div className="benefit">
-              <div className="benefitOverLay"></div>
-              <img src={acomplishiment} className="benefitImg" />
-              <div className="bottom-left">Sense of accomplishment</div>
-            </div>
-          </div>
-        </div>
+        <Benefit img={PH} benefit="Improved physical health" />
+        <Benefit img={mentalH} benefit="Positive effects on mental health" />
+        <Benefit img={FriendsH} benefit="Make new friends and Bond Quickly" />
+        <Benefit img={acomplishiment} benefit="Sense of accomplishment" />
       </Carousel>
     </>
   );
