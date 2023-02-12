@@ -42,7 +42,7 @@
 }
 @media only screen and (max-width: 600px) {
   .benefits {
-    height: 50vh;
+    height: 30vh;
   }
   .benefitOverLay {
     position: absolute;

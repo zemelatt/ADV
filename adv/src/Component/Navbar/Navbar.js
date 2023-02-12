@@ -138,7 +138,11 @@ const Navbar = () => {
                   </>
                 ) : (
                   <>
-                    <Link to="/login" style={{ color: "black" }}>
+                    <Link
+                      to="/login"
+                      onClick={() => setUp(false)}
+                      style={{ color: "black" }}
+                    >
                       Login
                     </Link>
                   </>

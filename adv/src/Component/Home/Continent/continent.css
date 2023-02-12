@@ -16,7 +16,7 @@
   max-width: 25em;
   height: 35em;
   display: flex;
-  gap: 4em;
+  gap: 7em;
   align-items: center;
   justify-content: center;
   margin: auto auto;
@@ -48,7 +48,9 @@
   color: white;
   display: flex;
   align-items: center;
-  padding: 1.8em 0.5em;
+  padding: 2em 0.5em;
+  line-height: 1.5;
+  margin-top: 1em;
 }
 .continentHeader {
   font-size: 2.4em;
@@ -71,6 +73,6 @@
 }
 @media only screen and (max-width: 500px) {
   .continentContainer {
-    width: 100%;
+    width: 18em;
   }
 }

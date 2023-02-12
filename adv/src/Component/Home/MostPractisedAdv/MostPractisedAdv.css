@@ -18,7 +18,6 @@
   background-color: rgb(178, 208, 237);
 }
 .aboutAdvContainer {
-  /* background-color: aqua; */
   background-color: rgb(224, 235, 245);
 }
 .safariDescription,
@@ -28,7 +27,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1em;
   margin-top: 3.5em;
   min-width: 8em;
   height: 2em;
@@ -38,19 +36,24 @@
   z-index: 0;
 }
 .safariDescription {
-  background-color: aliceblue;
+  background-color: rgb(178, 208, 237);
   margin-left: -4em;
 }
 .homeDescription {
-  background-color: aliceblue;
+  background-color: rgb(224, 235, 245);
   margin-right: -4em;
 }
-.animatedSafari,
-.animatedDiv {
+
+.animatedSafari {
   display: flex;
   flex-direction: row;
   width: 96%;
-  margin: auto 1em;
+  transition: 0.4s ease-in-out;
+}
+.animatedDiv {
+  display: flex;
+  width: 100%;
+  justify-content: center;
   transition: 0.4s ease-in-out;
 }
 .animatedDiv {
@@ -72,7 +75,8 @@
   align-items: flex-start;
   font-size: 1.8em;
   padding-left: 2%;
-  background-color: rgb(95, 97, 97);
+  padding-top: 2em;
+  background-color: rgb(199, 197, 197);
 }
 .advName {
   font-size: 1.2em;

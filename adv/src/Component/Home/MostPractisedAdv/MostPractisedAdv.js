@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./MostPractisedAdv.css";
-import HomeImg from "../../../asset/yoga.jpg";
+import HomeImg from "../../../asset/Trekking.jpg";
 import HomeImg2 from "../../../asset/africa2.avif";
 const SeparteQuote = () => {
   const [slide, setSlide] = useState("");
@@ -19,7 +19,7 @@ const SeparteQuote = () => {
         <div className="aboutAdvContainer">
           <div className={`animatedDiv ${slide}`}>
             <div className="homeDescription">
-              <h1 className="advName">Yoga</h1>{" "}
+              <h1 className="advName">Hiking</h1>{" "}
             </div>
             <img src={HomeImg} className="homeImg" />
           </div>
