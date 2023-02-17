@@ -59,11 +59,10 @@ const Register = () => {
     const emailValidator = /[^\s@]+@[^\s@]+\.[^\s@]+/;
     let nameRegex = emailValidator.test(email.trim());
 
-    console.log(valdatedName);
     if (!valdatedName) {
       setErr("Err: You cant use character in name !");
-    } else if (name.trim().length < 6) {
-      setErr("Err: name should be more than 5 letters!");
+    } else if (name.trim().length < 5) {
+      setErr("Err: name should be more than 4 letters!");
     } else if (password !== password2) {
       setErr("Err: password doesn't much!");
       setPassworderr("passERR");

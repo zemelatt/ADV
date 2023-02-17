@@ -12,7 +12,9 @@ const createToken = (id) => {
 module.exports.allAdventure = (req, res) => {
   const allsql = "select * from adventurelist";
   db.query(allsql, (err, result) => {
-    if (err) throw err;
+    if (err) {
+      console.log(err);
+    }
     res.send(result);
   });
 };

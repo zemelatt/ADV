@@ -1,10 +1,12 @@
-const mysql = require("mysql");
+const mysql = require("mysql2");
 
 const db = mysql.createConnection({
-  host: "localhost",
+  host: "db_serv",
   user: "root",
-  password: "",
-  database: "Adventure",
+  password: "password",
+  database: "adventure",
+  port: 3306,
+  // socketPath: "/cloudsql/project:region:instance",
 });
 module.exports = db;
 // db.connect((err) => {
