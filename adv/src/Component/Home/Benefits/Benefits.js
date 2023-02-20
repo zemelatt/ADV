@@ -38,7 +38,7 @@ const Benefits = () => {
         arrows={false}
         autoPlay
         centerMode={false}
-        transitionDuration={1000}
+        transitionDuration={50}
         draggable={true}
         focusOnSelect={false}
         infinite

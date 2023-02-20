@@ -8,21 +8,16 @@ import InputFormat from "../Input-and-textarea-Formats/InputFormat";
 
 const NewPass = () => {
   const { id } = useParams();
-  console.log("id " + id);
   const push = useNavigate();
   const [err, setErr] = useState("");
-
   const [password, setPassword] = useState("");
-
   const getPassword = (e) => {
     setPassword(e.target.value);
   };
-
   const submitt = (e) => {
     e.preventDefault();
     let formData = new FormData();
     formData.append("password", password);
-
     if (!password.trim()) {
       setErr("Err: pls insert the new password !");
     } else {

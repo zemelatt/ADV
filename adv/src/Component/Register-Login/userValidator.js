@@ -1,7 +1,6 @@
 const emailValidat = /[^\s@]+@[^\s@]+\.[^\s@]+/;
 function EmailValidator(email) {
   let nameRegex = emailValidat.test(email.trim());
-
   if (nameRegex) {
     return true;
   } else {
@@ -17,5 +16,4 @@ function nameValidator(name) {
     return false;
   }
 }
-
 export { EmailValidator, nameValidator };

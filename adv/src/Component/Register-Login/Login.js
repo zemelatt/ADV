@@ -10,23 +10,18 @@ import { addTodo } from "../../redux/counterSlice";
 
 const Login = () => {
   const dispatch = useDispatch(); // dispach
-
   const push = useNavigate();
-
   const [err, setErr] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const getName = (e) => {
     setName(e.target.value);
   };
-
   const getPassword = (e) => {
     setPassword(e.target.value);
   };
-
   const submitt = (e) => {
     e.preventDefault();
-
     let formData = new FormData();
     formData.append("name", name);
     formData.append("password", password);

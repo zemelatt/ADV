@@ -78,7 +78,7 @@ const Navbar = () => {
   const logout = () => {
     sessionStorage.clear("role");
     sessionStorage.clear("userId");
-    sessionStorage.clear("persist:root");
+    // sessionStorage.clear("persist:root");
     localStorage.clear("persist:root");
     localStorage.clear("delete");
     setlogin(false);
