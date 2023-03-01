@@ -2,18 +2,20 @@
 
 .navbar {
   top: 0em;
-  width: 95%;
+  width: 100%;
   position: sticky;
   font-size: 1.3em;
   border-bottom: 2px solid rgb(255, 255, 255);
   z-index: 50;
-  background-color: rgb(20, 14, 14, 0.4);
+  /* background-color: rgb(20, 14, 14, 0.4); */
+  background-color: black;
   height: 3em;
   margin: auto;
 }
 .blur {
   backdrop-filter: blur(10px);
 }
+
 .main {
   background-color: black;
 }
@@ -32,7 +34,7 @@
   margin-inline: 1.2rem;
   padding: 0em 1em;
   float: right;
-  font-size: 2rem;
+  font-size: 1.6rem;
   text-decoration: none;
   color: rgb(255, 255, 255);
   margin-top: 0.5em;
@@ -44,7 +46,7 @@
 
 .dropdown {
   position: absolute;
-  top: 5.3rem;
+  top: 5rem;
   right: 1.5rem;
   padding: 5px;
   width: 200px;
@@ -54,7 +56,7 @@
   z-index: 4;
 }
 .drop {
-  padding-top: 1rem;
+  padding-top: 0.2rem;
   font-size: 1.7rem;
   color: white;
 }
