@@ -20,8 +20,11 @@ const List = ({ advs, admin }) => {
     Axios.delete(`http://localhost:2222/delete/my-adv_id/${advId}`, {
       withCredentials: true,
     }).then((response) => {
+      document.location.reload();
+      // if (response.data.msg == "deleted") {
+      // push(`/adv`); //my-adv/128
+      // }
       console.log(response);
-      push(`/adv`); //my-adv/128
     });
   };
   const zoomOutpic = (id) => {
