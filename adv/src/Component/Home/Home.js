@@ -20,7 +20,7 @@ const Home = () => {
   return (
     <div>
       <div className={classs2}>
-        <h2 className="homenots">Check Our Adventure List</h2>
+        <h2 className="homenots">Check The Adventure</h2>
         <button className="adBtn" onClick={() => setclass2("home")}>
           <h3 className="homenotsbtn">OK</h3>
         </button>

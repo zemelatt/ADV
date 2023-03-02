@@ -7,13 +7,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(199, 197, 197);
+  /* background-color: rgb(199, 197, 197); */
+  background-color: aliceblue;
   margin-left: auto;
   margin-right: auto;
 }
 .benefitsContainer {
   width: 90%;
-  background-color: rgb(199, 197, 197);
+  /* background-color: rgb(199, 197, 197); */
+  background-color: aliceblue;
 }
 .benefitImg {
   width: 100%;
@@ -22,8 +24,9 @@
 }
 .bottom-left {
   position: absolute;
-  font-family: "Kaushan Script", cursive;
-  font-size: 2em;
+  font-family: "Times New Roman", Times, serif;
+  font-size: calc(1em + 1vh);
+  height: auto;
   bottom: 90px;
   left: 10%;
   color: #eceae7;
@@ -34,13 +37,12 @@
   top: 13.8%;
   left: 5%;
   right: 5%;
-  background-color: rgba(55, 54, 51, 0.3);
   overflow: hidden;
   transition: 0.5s ease;
   height: 72%;
   border-radius: 20px;
 }
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
   .benefits {
     height: 30vh;
   }
@@ -55,4 +57,9 @@
     height: 100%;
     border-radius: 20px;
   }
-}
+  .benefitImg {
+    width: 100%;
+    height: 50dvh;
+    border-radius: 50px;
+  }
+} */

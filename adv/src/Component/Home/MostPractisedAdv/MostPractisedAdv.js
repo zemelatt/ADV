@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./MostPractisedAdv.css";
-import HomeImg from "../../../asset/Trekking.jpg";
+import HomeImg from "../../../asset/toomas-tartes-Yizrl9N_eDA-unsplash (1).jpg";
 import HomeImg2 from "../../../asset/africa2.avif";
 const SeparteQuote = () => {
   const [slide, setSlide] = useState("");
@@ -14,7 +14,7 @@ const SeparteQuote = () => {
   });
   return (
     <>
-      <h2 className="mostPracticed">Most practiced Adventure</h2>
+      <h2 className="mostPracticed">Most Practiced Adventure</h2>
       <div className="aboutAdv">
         <div className="aboutAdvContainer">
           <div className={`animatedDiv ${slide}`}>

@@ -21,7 +21,7 @@ const Body = () => {
           </p> */}
           <div className="advice">
             <p>
-              Let's make life <div id="spin"></div>
+              Let's make life <span id="spin"></span>
             </p>
           </div>
         </div>
@@ -35,7 +35,7 @@ const Body = () => {
             <GrYoga /> Yoga
           </li>
           <li className="listAdv">
-            <GiSummits /> Summer camps
+            <GiSummits /> Camping
           </li>
           <li className="listAdv">
             <MdNordicWalking />

@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: row;
   border-color: rgba(221, 231, 220, 0.29);
+  background-color: aliceblue;
   overflow: hidden;
 }
 .aboutAdvContainer,
@@ -14,12 +15,7 @@
   justify-content: center;
   width: 50%;
 }
-.aboutAdvSafari {
-  /* background-color: rgb(178, 208, 237); */
-}
-.aboutAdvContainer {
-  /* background-color: rgb(224, 235, 245); */
-}
+
 .safariDescription,
 .homeDescription {
   color: rgb(0, 0, 0);
@@ -37,11 +33,17 @@
 }
 .safariDescription {
   /* background-color: rgb(178, 208, 237); */
-  margin-left: -4em;
+  margin-left: -8.8em;
+  margin-top: -12em;
+  background-color: rgba(202, 200, 198, 0);
+  border-radius: 10px 30px;
 }
 .homeDescription {
-  background-color: rgb(224, 235, 245);
-  margin-right: -4em;
+  background-color: rgb(217, 226, 234);
+  margin-right: -8.8em;
+  margin-top: 0;
+  background-color: rgba(202, 200, 198, 0.4);
+  border-radius: 30px 10px;
 }
 
 .animatedSafari {
@@ -57,10 +59,15 @@
   transition: 0.4s ease-in-out;
 }
 .animatedDiv {
-  margin-left: -110em;
+  margin-left: -120em;
 }
 .animatedSafari {
-  margin-right: -110em;
+  margin-right: -120em;
+}
+.aboutAdvSafari .start {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .start {
   margin-left: 0em;
@@ -69,6 +76,7 @@
 .homeImg {
   width: 70%;
   height: 25em;
+  border-radius: 30px;
 }
 .mostPracticed {
   display: flex;
@@ -77,12 +85,12 @@
   justify-content: center;
   font-size: calc(1.5em + 0.5vw);
   padding: 1em;
-  background-color: rgb(229, 226, 226);
+  background-color: aliceblue;
 }
 .advName {
   font-size: 1.2em;
 }
-@media only screen and (max-width: 1106px) {
+@media only screen and (max-width: 760px) {
   .aboutAdv {
     display: flex;
     flex-direction: column;
@@ -96,32 +104,35 @@
     justify-content: center;
     height: 60%;
     width: 90%;
-    background-color: rgb(255, 255, 255);
-  }
 
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .aboutAdvContainer {
+    height: 60%;
+    width: 90%;
+  }
   .homeImg {
-    width: 80%;
+    width: 100%;
     height: 20em;
   }
   .safariDescription,
   .homeDescription {
     font-size: 1em;
-    gap: 1em;
-    margin-top: 0em;
-    border: 2px solid black;
-    background-color: rgb(255, 255, 255);
+    margin-top: 0;
+    background-color: rgba(202, 200, 198, 0.4);
   }
   .safariDescription {
-    margin-top: 5em;
+    border-radius: 10px 30px;
+    width: calc(1em +2vw);
+    margin-top: -17.1em;
   }
   .homeDescription {
-    margin-top: 3em;
-    align-items: center;
-    justify-content: center;
+    border-radius: 30px 10px;
   }
 }
 
-@media only screen and (max-width: 750px) {
+/* @media only screen and (max-width: 750px) {
   .aboutAdv {
     gap: 1em;
   }
@@ -142,4 +153,4 @@
     flex-direction: column;
     align-items: center;
   }
-}
+} */

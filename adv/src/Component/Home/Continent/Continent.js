@@ -1,7 +1,7 @@
 import React from "react";
 import Africa from "../../../asset/africa.jpg";
 import Europ from "../../../asset/Kenya.Multigenerational-safari.home_.jpg";
-import Ausralia from "../../../asset/ausralia.webp";
+import Ausralia from "../../../asset/mckenzie-river-5129717_1280.jpg";
 import Asia from "../../../asset/asia.webp";
 import "./continent.css";
 import ContinentProp from "./ContinentProp";

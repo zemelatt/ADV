@@ -1,7 +1,8 @@
 .mainCintainer {
   display: flex;
   flex-direction: column;
-  background-color: rgb(199, 197, 197);
+  /* background-color: rgb(199, 197, 197); */
+  background-color: aliceblue;
   width: 100%;
   height: 100vh;
   margin-left: auto;
@@ -10,7 +11,8 @@
 .continent {
   width: 96%;
   margin: 0 auto;
-  background-color: rgb(255, 255, 255);
+  /* background-color: rgb(255, 255, 255); */
+  background-color: aliceblue;
 }
 .continentContainer {
   max-width: 25em;
